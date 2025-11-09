@@ -5,6 +5,9 @@ import { MapboxMap } from "@/components/mapbox-map";
 import { StatCards } from "@/components/stat-cards";
 import { DataTable } from "@/components/data-table";
 import { AnalyticsOverview } from "@/components/analytics-overview";
+import { AddAnnouncementModal } from "@/components/add-announcement-modal";
+import { Button } from "@/components/ui/button";
+import { Bell } from "lucide-react";
 import { useState } from "react";
 
 type Report = {
@@ -27,6 +30,12 @@ type Report = {
 
 export default function AdminPage() {
   const [selectedReport, setSelectedReport] = useState<Report | null>(null);
+  const [isAnnouncementModalOpen, setIsAnnouncementModalOpen] = useState(false);
+
+  const handleAnnouncementSuccess = () => {
+    // Refresh announcements or show success message
+    console.log("Announcement created successfully!");
+  };
 
   return (
     <div className="flex h-screen overflow-hidden bg-background">
@@ -46,6 +55,13 @@ export default function AdminPage() {
                 Real-time location analytics and insights
               </p>
             </div>
+            <Button
+              onClick={() => setIsAnnouncementModalOpen(true)}
+              className="gap-2"
+            >
+              <Bell className="h-4 w-4" />
+              Create Announcement
+            </Button>
           </div>
 
           {/* Stats Cards */}
@@ -70,6 +86,13 @@ export default function AdminPage() {
           <DataTable />
         </div>
       </main>
+
+      {/* Add Announcement Modal */}
+      <AddAnnouncementModal
+        isOpen={isAnnouncementModalOpen}
+        onClose={() => setIsAnnouncementModalOpen(false)}
+        onSuccess={handleAnnouncementSuccess}
+      />
     </div>
   );
 }
