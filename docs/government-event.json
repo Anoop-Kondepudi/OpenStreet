@@ -1,0 +1,654 @@
+{
+  "reports": [
+    {
+      "id": "gov-event-001",
+      "description": "City Hall Annual Thanksgiving Celebration and community gathering. Join us for food, music, and festivities on November 1st at 2:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-01T14:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-002",
+      "description": "Dallas City Council Meeting - District 7 Open Forum. Residents invited to discuss local initiatives and voice concerns on November 2nd at 9:00 AM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street, Council Chambers",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-02T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-003",
+      "description": "Mobile Vaccination Clinic at Fair Park community center. Free flu and COVID-19 vaccines available on November 3rd from 10:00 AM to 4:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3809 Swiss Avenue",
+        "lat": 32.7761,
+        "lng": -96.7623
+      },
+      "timestamp": "2025-11-03T10:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-004",
+      "description": "Ribbon Cutting Ceremony for newly renovated Central Library expansion. Public invited to explore new facilities on November 4th at 1:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6101 Maple Avenue",
+        "lat": 32.8076,
+        "lng": -96.8111
+      },
+      "timestamp": "2025-11-04T13:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-005",
+      "description": "Veterans Day Memorial Service honoring fallen service members. Ceremony begins at 10:00 AM on November 5th at Dallas Veterans Park.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4545 Parry Avenue",
+        "lat": 32.8234,
+        "lng": -96.7891
+      },
+      "timestamp": "2025-11-05T10:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-006",
+      "description": "Urban Planning Commission Meeting - Downtown Development Initiative. Discuss new zoning proposals for downtown Dallas on November 6th at 6:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-06T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-007",
+      "description": "DMV Mobile Unit at South Dallas Community Center. Driver licenses and vehicle registrations processed on November 7th from 9:00 AM to 5:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2505 Martin Luther King Jr. Boulevard",
+        "lat": 32.7489,
+        "lng": -96.7945
+      },
+      "timestamp": "2025-11-07T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-008",
+      "description": "Dallas Parks Department celebrates 75th anniversary of White Rock Lake Park. Family celebration with activities and historical presentation on November 8th at 11:00 AM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "8300 East Lawther Drive",
+        "lat": 32.8456,
+        "lng": -96.7234
+      },
+      "timestamp": "2025-11-08T11:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-009",
+      "description": "Free Tax Assistance Clinic for seniors and low-income residents. Expert tax preparers available on November 9th from 10:00 AM to 3:00 PM at North Dallas Library.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "8311 Northwest Highway",
+        "lat": 32.8712,
+        "lng": -96.8456
+      },
+      "timestamp": "2025-11-09T10:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-010",
+      "description": "Community Forum: Public Safety and Neighborhood Policing. City officials discuss new initiatives on November 10th at 7:00 PM at Lakewood Community Center.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6200 Abrams Road",
+        "lat": 32.8143,
+        "lng": -96.7534
+      },
+      "timestamp": "2025-11-10T19:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-011",
+      "description": "Voter Registration Drive at Highland Hills Mall. Register to vote or update your registration on November 11th from 11:00 AM to 6:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "9831 North Central Expressway",
+        "lat": 32.8923,
+        "lng": -96.7845
+      },
+      "timestamp": "2025-11-11T11:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-012",
+      "description": "Building Dedication Ceremony for new Tech Hub at Dallas Business District. Celebrating innovation and economic growth on November 12th at 3:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1301 Arapaho Road",
+        "lat": 32.8034,
+        "lng": -96.8723
+      },
+      "timestamp": "2025-11-12T15:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-013",
+      "description": "Environmental Sustainability Town Hall - Climate Action Plan Discussion. City leaders address climate initiatives on November 13th at 6:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6101 Maple Avenue",
+        "lat": 32.8076,
+        "lng": -96.8111
+      },
+      "timestamp": "2025-11-13T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-014",
+      "description": "Mobile Health Clinic providing free checkups and health education. Services available on November 14th from 10:00 AM to 4:00 PM at East Dallas Park.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "8500 Cantegral Road",
+        "lat": 32.7234,
+        "lng": -96.7123
+      },
+      "timestamp": "2025-11-14T10:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-015",
+      "description": "Dallas ISD Building Dedication - New Roosevelt High School auditorium. Celebrating school district milestone on November 15th at 2:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2636 Abrams Road",
+        "lat": 32.8212,
+        "lng": -96.7634
+      },
+      "timestamp": "2025-11-15T14:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-016",
+      "description": "Public Hearing on proposed ordinances for small business development. City Council meets on November 16th at 9:00 AM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-16T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-017",
+      "description": "Award Ceremony honoring community leaders and volunteers. Recognition event on November 17th at 6:00 PM at Dallas Convention Center.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "650 South Griffin Street",
+        "lat": 32.7734,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-17T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-018",
+      "description": "Free Legal Clinic offering immigration and housing assistance. Attorneys available on November 18th from 1:00 PM to 5:00 PM at downtown location.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "300 Main Street",
+        "lat": 32.7853,
+        "lng": -96.8023
+      },
+      "timestamp": "2025-11-18T13:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-019",
+      "description": "Parks Department Tree Planting Initiative across North Dallas neighborhoods. Hundreds of native trees to be planted on November 19th starting at 9:00 AM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Bachman Lake Park",
+        "lat": 32.8567,
+        "lng": -96.8234
+      },
+      "timestamp": "2025-11-19T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-020",
+      "description": "City Council District 5 Community Meeting discussing transportation improvements. Residents invited to share feedback on November 20th at 7:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3434 Ross Avenue",
+        "lat": 32.7967,
+        "lng": -96.7912
+      },
+      "timestamp": "2025-11-20T19:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-021",
+      "description": "Thanksgiving Prep Fair - Food bank distribution and community support services. Services available on November 21st from 10:00 AM to 4:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4500 Harry Hines Boulevard",
+        "lat": 32.8145,
+        "lng": -96.8456
+      },
+      "timestamp": "2025-11-21T10:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-022",
+      "description": "Ribbon Cutting for South Dallas Recreation Center improvements. New facilities opening on November 22nd at 12:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3402 South Marsalis Avenue",
+        "lat": 32.7345,
+        "lng": -96.7834
+      },
+      "timestamp": "2025-11-22T12:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-023",
+      "description": "Celebrate 100th Year of Dallas High School with anniversary ceremony. Alumni and community members invited on November 23rd at 2:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2019 Abrams Road",
+        "lat": 32.8156,
+        "lng": -96.7723
+      },
+      "timestamp": "2025-11-23T14:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-024",
+      "description": "Housing and Community Development Forum addressing affordability. Public input on next housing initiatives on November 24th at 6:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-24T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-025",
+      "description": "Workforce Development Job Fair with city employers. Meet employers and explore career opportunities on November 25th from 10:00 AM to 3:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6101 Maple Avenue",
+        "lat": 32.8076,
+        "lng": -96.8111
+      },
+      "timestamp": "2025-11-25T10:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-026",
+      "description": "Public Safety Commission Meeting reviewing 2025 crime statistics and prevention strategies. Meeting on November 1st at 5:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-01T17:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-027",
+      "description": "Mobile Dental Clinic providing free cleanings and exams. Services for uninsured residents on November 2nd from 9:00 AM to 5:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2505 Martin Luther King Jr. Boulevard",
+        "lat": 32.7489,
+        "lng": -96.7945
+      },
+      "timestamp": "2025-11-02T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-028",
+      "description": "Economic Development Council Meeting discussing small business incentives. Meet with city officials on November 3rd at 3:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1301 Arapaho Road",
+        "lat": 32.8034,
+        "lng": -96.8723
+      },
+      "timestamp": "2025-11-03T15:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-029",
+      "description": "Water Department Public Forum on conservation initiatives and infrastructure upgrades. Learn and discuss on November 4th at 6:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-04T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-030",
+      "description": "Cultural Heritage Month Celebration at Fair Park. Showcase of local arts and traditions on November 5th from 12:00 PM to 7:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3809 Swiss Avenue",
+        "lat": 32.7761,
+        "lng": -96.7623
+      },
+      "timestamp": "2025-11-05T12:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-031",
+      "description": "Fire Department Open House and Safety Education. Tour facilities and learn fire safety on November 6th from 10:00 AM to 4:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Hall Street",
+        "lat": 32.7923,
+        "lng": -96.7945
+      },
+      "timestamp": "2025-11-06T10:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-032",
+      "description": "Senior Citizens Day at Dallas Public Library featuring programs and activities. Free resources and socializing on November 7th at 1:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6101 Maple Avenue",
+        "lat": 32.8076,
+        "lng": -96.8111
+      },
+      "timestamp": "2025-11-07T13:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-033",
+      "description": "Youth Services Commission Meeting addressing after-school programs and recreational activities. Meeting on November 8th at 4:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-08T16:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-034",
+      "description": "Bike Dallas Community Ride promoting cycling and trails. Family-friendly ride on November 9th starting at 9:00 AM at White Rock Park.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "8300 East Lawther Drive",
+        "lat": 32.8456,
+        "lng": -96.7234
+      },
+      "timestamp": "2025-11-09T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-035",
+      "description": "Permit and Licensing Clinic for small business owners. Expert guidance on permits and regulations on November 10th from 2:00 PM to 6:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-10T14:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-036",
+      "description": "Public Health Awareness Campaign on diabetes and nutrition. Free screenings and workshops on November 11th from 11:00 AM to 5:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4500 Harry Hines Boulevard",
+        "lat": 32.8145,
+        "lng": -96.8456
+      },
+      "timestamp": "2025-11-11T11:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-037",
+      "description": "Transportation and Mobility Forum discussing public transit improvements. City planners present on November 12th at 6:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-12T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-038",
+      "description": "Community Cleanup Day along Trinity River. Volunteer to beautify our waterways on November 13th starting at 8:00 AM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Trinity River Park",
+        "lat": 32.7654,
+        "lng": -96.7834
+      },
+      "timestamp": "2025-11-13T08:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-039",
+      "description": "Education and Youth Development Summit featuring local educators and mentors. Networking and workshops on November 14th from 9:00 AM to 3:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6101 Maple Avenue",
+        "lat": 32.8076,
+        "lng": -96.8111
+      },
+      "timestamp": "2025-11-14T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-040",
+      "description": "Housing Authority Board Meeting addressing tenant rights and property improvements. Meeting on November 15th at 2:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-15T14:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-041",
+      "description": "Parks and Recreation Master Plan Review with community input. Public meeting on November 16th at 5:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-16T17:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-042",
+      "description": "Celebrate Dallas Police Department 50th anniversary of community policing program. Ceremony and reception on November 17th at 3:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1400 South Lamar Street",
+        "lat": 32.7945,
+        "lng": -96.8012
+      },
+      "timestamp": "2025-11-17T15:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-043",
+      "description": "Homeless Outreach and Support Services Fair. Resources and assistance available on November 18th from 10:00 AM to 4:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2505 Martin Luther King Jr. Boulevard",
+        "lat": 32.7489,
+        "lng": -96.7945
+      },
+      "timestamp": "2025-11-18T10:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-044",
+      "description": "Traffic Safety Council Meeting discussing intersection improvements and accident prevention. Meeting on November 19th at 4:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-19T16:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-045",
+      "description": "Dallas Arts District Public Art Installation Ceremony. Unveiling new public sculptures on November 20th at 1:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2012 Flora Street",
+        "lat": 32.7876,
+        "lng": -96.8034
+      },
+      "timestamp": "2025-11-20T13:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-046",
+      "description": "Code Enforcement and Property Standards Forum with neighborhood groups. Discuss housing standards on November 21st at 6:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-21T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-047",
+      "description": "Library Expansion Grand Opening at East Dallas Branch. New collections and state-of-the-art facilities on November 22nd at 11:00 AM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "8315 North Westmoreland Road",
+        "lat": 32.8234,
+        "lng": -96.8145
+      },
+      "timestamp": "2025-11-22T11:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-048",
+      "description": "City Anniversary Celebration - Dallas Founded 150 Years Ago. Historical exhibits and festivities on November 23rd from 10:00 AM to 6:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Fair Park",
+        "lat": 32.7761,
+        "lng": -96.7623
+      },
+      "timestamp": "2025-11-23T10:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-049",
+      "description": "Environmental Protection Commission Meeting on air quality and sustainability goals. Meeting on November 24th at 3:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Marilla Street",
+        "lat": 32.7843,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-24T15:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "gov-event-050",
+      "description": "Consumer Advocacy Day with city attorney's office providing tips on fraud prevention and consumer rights. Sessions on November 25th from 11:00 AM to 4:00 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6101 Maple Avenue",
+        "lat": 32.8076,
+        "lng": -96.8111
+      },
+      "timestamp": "2025-11-25T11:00:00Z",
+      "status": "open"
+    }
+  ]
+}

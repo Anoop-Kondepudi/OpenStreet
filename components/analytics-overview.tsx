@@ -1,10 +1,11 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShieldAlert, Construction, MapPin, Clock, BarChart3 } from "lucide-react";
+import { ShieldAlert, Lightbulb, Users, Building2, MapPin, Clock, BarChart3 } from "lucide-react";
 
 type Report = {
   id: string;
+  type?: string;
   description: string;
   location: {
     city: string;
@@ -22,11 +23,42 @@ interface AnalyticsOverviewProps {
 }
 
 export function AnalyticsOverview({ selectedReport }: AnalyticsOverviewProps) {
-  const isCrime = selectedReport?.id.startsWith("crime");
-  const reportType = isCrime ? "Crime Report" : "Construction Report";
-  const accentColor = isCrime ? "text-red-500" : "text-orange-500";
-  const bgColor = isCrime ? "bg-red-500/10" : "bg-orange-500/10";
-  const borderColor = isCrime ? "border-red-500/20" : "border-orange-500/20";
+  const categoryConfig = {
+    'issue': {
+      accent: 'text-red-500',
+      bg: 'bg-red-500/10',
+      border: 'border-red-500/20',
+      icon: ShieldAlert,
+      title: 'Issue Report'
+    },
+    'idea': {
+      accent: 'text-blue-500',
+      bg: 'bg-blue-500/10',
+      border: 'border-blue-500/20',
+      icon: Lightbulb,
+      title: 'Idea'
+    },
+    'civilian-event': {
+      accent: 'text-green-500',
+      bg: 'bg-green-500/10',
+      border: 'border-green-500/20',
+      icon: Users,
+      title: 'Civilian Event'
+    },
+    'government-event': {
+      accent: 'text-purple-500',
+      bg: 'bg-purple-500/10',
+      border: 'border-purple-500/20',
+      icon: Building2,
+      title: 'Government Event'
+    }
+  };
+  const config = categoryConfig[selectedReport?.type as keyof typeof categoryConfig] || categoryConfig['issue'];
+  const reportType = config.title;
+  const accentColor = config.accent;
+  const bgColor = config.bg;
+  const borderColor = config.border;
+  const ReportIcon = config.icon;
 
   return (
     <Card className="h-full">
@@ -53,11 +85,7 @@ export function AnalyticsOverview({ selectedReport }: AnalyticsOverviewProps) {
             {/* Report Type Badge */}
             <div className="flex items-center gap-3">
               <div className={`p-3 rounded-xl ${bgColor} ${borderColor} border-2`}>
-                {isCrime ? (
-                  <ShieldAlert className={`h-8 w-8 ${accentColor}`} />
-                ) : (
-                  <Construction className={`h-8 w-8 ${accentColor}`} />
-                )}
+                <ReportIcon className={`h-8 w-8 ${accentColor}`} />
               </div>
               <div>
                 <h3 className={`text-lg font-bold ${accentColor}`}>

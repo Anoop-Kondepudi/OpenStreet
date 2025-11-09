@@ -1,0 +1,680 @@
+{
+  "reports": [
+    {
+      "id": "issue-052",
+      "description": "I got robbed by some gangsters in this area. Please dont visit here.",
+      "location": {
+        "city": "",
+        "state": "",
+        "address": "",
+        "lat": 32.84823380415318,
+        "lng": -96.66383744333578
+      },
+      "timestamp": "2025-11-09T02:45:30.713Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-051",
+      "description": "I got robbed by some gangsters in this area. Please dont visit here.",
+      "location": {
+        "city": "",
+        "state": "",
+        "address": "",
+        "lat": 32.84823380415318,
+        "lng": -96.66383744333578
+      },
+      "timestamp": "2025-11-09T02:45:30.607Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-001",
+      "description": "Bicycle theft reported near Main Street station. Thief cut through cable lock and fled on foot.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "405 Main Street, Dallas, TX 75202",
+        "lat": 32.7773,
+        "lng": -96.7965
+      },
+      "timestamp": "2025-11-01T08:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-002",
+      "description": "Large pothole on Elm Street causing vehicle damage. Multiple cars have reported suspension issues.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2500 Elm Street, Dallas, TX 75201",
+        "lat": 32.7845,
+        "lng": -96.7612
+      },
+      "timestamp": "2025-11-01T14:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-003",
+      "description": "Street light outage on Cedar Springs Road. Dark intersection creating safety hazard at night.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2800 Cedar Springs Road, Dallas, TX 75219",
+        "lat": 32.8045,
+        "lng": -96.8012
+      },
+      "timestamp": "2025-11-01T19:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-004",
+      "description": "Vandalism on Deep Ellum building. Graffiti covers north wall of warehouse, includes gang tags.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2600 Main Street, Dallas, TX 75226",
+        "lat": 32.7845,
+        "lng": -96.789
+      },
+      "timestamp": "2025-11-02T07:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-005",
+      "description": "Assault reported at Oak Cliff transit stop. Two individuals involved in physical altercation.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4100 North Beckley Avenue, Dallas, TX 75212",
+        "lat": 32.752,
+        "lng": -96.8234
+      },
+      "timestamp": "2025-11-02T11:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-006",
+      "description": "Missing stop sign at intersection. Traffic control sign has been removed, creating accident risk.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3800 Ross Avenue, Dallas, TX 75204",
+        "lat": 32.789,
+        "lng": -96.7645
+      },
+      "timestamp": "2025-11-02T15:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-007",
+      "description": "Car break-in at Uptown parking garage. Multiple vehicles targeted, windows smashed.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2800 Uptown Avenue, Dallas, TX 75201",
+        "lat": 32.8123,
+        "lng": -96.8045
+      },
+      "timestamp": "2025-11-02T22:10:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-008",
+      "description": "Broken sidewalk on McKinney Avenue. Large crack and raised concrete creating tripping hazard.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2400 McKinney Avenue, Dallas, TX 75201",
+        "lat": 32.809,
+        "lng": -96.8001
+      },
+      "timestamp": "2025-11-03T09:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-009",
+      "description": "Hit and run near Lakewood Park. Damage to parked vehicle, witness saw white sedan flee scene.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6500 Abrams Road, Dallas, TX 75231",
+        "lat": 32.8234,
+        "lng": -96.7156
+      },
+      "timestamp": "2025-11-03T12:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-010",
+      "description": "Unsafe pedestrian crossing near downtown. Lack of proper crosswalk markings near busy intersection.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "100 South Akard Street, Dallas, TX 75202",
+        "lat": 32.7734,
+        "lng": -96.789
+      },
+      "timestamp": "2025-11-03T16:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-011",
+      "description": "Theft from vehicle on Jefferson Avenue. Radio and personal items stolen from unlocked car.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2200 Jefferson Avenue, Dallas, TX 75219",
+        "lat": 32.7945,
+        "lng": -96.8156
+      },
+      "timestamp": "2025-11-04T08:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-012",
+      "description": "Storm drain overflow on Young Street. Water pooling in roadway during rainstorms.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3100 Young Street, Dallas, TX 75201",
+        "lat": 32.8056,
+        "lng": -96.7923
+      },
+      "timestamp": "2025-11-04T13:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-013",
+      "description": "Abandoned shopping cart blocking sidewalk. Cart left in middle of pedestrian pathway.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5500 Greenville Avenue, Dallas, TX 75206",
+        "lat": 32.8134,
+        "lng": -96.7434
+      },
+      "timestamp": "2025-11-04T17:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-014",
+      "description": "Vandalism on highway overpass. Spray paint covering highway sign and concrete supports.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1200 South Corinth Street, Dallas, TX 75215",
+        "lat": 32.7612,
+        "lng": -96.8023
+      },
+      "timestamp": "2025-11-04T20:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-015",
+      "description": "Mugging near Fair Park. Victim robbed at gunpoint, suspect fled on foot heading south.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3809 Grand Avenue, Dallas, TX 75210",
+        "lat": 32.7834,
+        "lng": -96.7612
+      },
+      "timestamp": "2025-11-05T21:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-016",
+      "description": "Dead tree blocking residential street. Large branches hanging over roadway creating hazard.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "7200 Swiss Avenue, Dallas, TX 75214",
+        "lat": 32.8245,
+        "lng": -96.6945
+      },
+      "timestamp": "2025-11-05T10:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-017",
+      "description": "Broken street light on Burton Hill Drive. Light not functioning, creating dark area.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5800 Burton Hill Drive, Dallas, TX 75235",
+        "lat": 32.7823,
+        "lng": -96.8456
+      },
+      "timestamp": "2025-11-05T18:40:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-018",
+      "description": "Package theft on residential porch. Amazon delivery box stolen from front entrance.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "8400 Bluffview Boulevard, Dallas, TX 75238",
+        "lat": 32.8367,
+        "lng": -96.8234
+      },
+      "timestamp": "2025-11-06T09:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-019",
+      "description": "Pothole cluster on Whitmore Avenue. Multiple large holes affecting one-block radius.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4500 Whitmore Avenue, Dallas, TX 75205",
+        "lat": 32.8012,
+        "lng": -96.7834
+      },
+      "timestamp": "2025-11-06T14:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-020",
+      "description": "Unsafe bus stop near residential area. Missing shelter and inadequate lighting at night.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1400 West Jefferson Boulevard, Dallas, TX 75208",
+        "lat": 32.7756,
+        "lng": -96.8145
+      },
+      "timestamp": "2025-11-06T16:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-021",
+      "description": "Graffiti on school building in Lakewood. Gang tags on south wall, requires immediate removal.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6810 Lakewood Drive, Dallas, TX 75231",
+        "lat": 32.8156,
+        "lng": -96.7189
+      },
+      "timestamp": "2025-11-07T07:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-022",
+      "description": "Car alarm going off repeatedly in parking lot. Vehicle left unattended, alarm disrupting area.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2600 Harry Hines Boulevard, Dallas, TX 75235",
+        "lat": 32.8034,
+        "lng": -96.8312
+      },
+      "timestamp": "2025-11-07T10:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-023",
+      "description": "Missing manhole cover on Harwood Street. Dangerous opening in roadway posing serious hazard.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Harwood Street, Dallas, TX 75201",
+        "lat": 32.7845,
+        "lng": -96.7978
+      },
+      "timestamp": "2025-11-07T13:55:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-024",
+      "description": "Robbery at convenience store in Deep Ellum. Two suspects entered at gunpoint and fled with cash.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2500 Swiss Avenue, Dallas, TX 75204",
+        "lat": 32.7912,
+        "lng": -96.7723
+      },
+      "timestamp": "2025-11-07T23:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-025",
+      "description": "Broken traffic light at Maple Avenue intersection. Light not changing properly, causing congestion.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3200 Maple Avenue, Dallas, TX 75201",
+        "lat": 32.8089,
+        "lng": -96.7856
+      },
+      "timestamp": "2025-11-08T08:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-026",
+      "description": "Aggressive dog loose in residential neighborhood. Dog has chased pedestrians multiple times.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4800 Lovers Lane, Dallas, TX 75225",
+        "lat": 32.8245,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-08T11:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-027",
+      "description": "Overflowing trash bins on Commerce Street. Waste spilling onto sidewalk, attracting rodents.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "100 Commerce Street, Dallas, TX 75202",
+        "lat": 32.7801,
+        "lng": -96.7934
+      },
+      "timestamp": "2025-11-08T15:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-028",
+      "description": "Theft of construction equipment from work site. Expensive tools stolen overnight from locked fence area.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "8900 North Central Expressway, Dallas, TX 75231",
+        "lat": 32.8312,
+        "lng": -96.7834
+      },
+      "timestamp": "2025-11-08T19:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-029",
+      "description": "Sidewalk damage on Bellaire Drive. Concrete cracked and uneven, barrier needed for safety.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6300 Bellaire Drive, Dallas, TX 75205",
+        "lat": 32.7978,
+        "lng": -96.7945
+      },
+      "timestamp": "2025-11-08T22:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-030",
+      "description": "Homeless encampment blocking pedestrian underpass. Multiple tents and belongings obstructing pathway.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5000 Trunk Avenue, Dallas, TX 75204",
+        "lat": 32.7867,
+        "lng": -96.7612
+      },
+      "timestamp": "2025-11-09T06:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-031",
+      "description": "Broken bench at bus stop on Thornton Freeway. Structural damage making it unusable.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "7100 Thornton Freeway, Dallas, TX 75228",
+        "lat": 32.7734,
+        "lng": -96.6989
+      },
+      "timestamp": "2025-11-09T09:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-032",
+      "description": "Street racing reported on Industrial Boulevard. Speeding vehicles performing stunts endangering public.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3800 Industrial Boulevard, Dallas, TX 75210",
+        "lat": 32.7634,
+        "lng": -96.7856
+      },
+      "timestamp": "2025-11-09T12:10:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-033",
+      "description": "Vandalism on community center in Oak Cliff. Windows broken, interior items damaged.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4320 North Beckley Avenue, Dallas, TX 75212",
+        "lat": 32.7534,
+        "lng": -96.8245
+      },
+      "timestamp": "2025-11-09T14:35:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-034",
+      "description": "Bicycle lane blocked by parked vehicles. Bikes unable to use designated lane safely.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1800 San Jacinto Street, Dallas, TX 75201",
+        "lat": 32.7923,
+        "lng": -96.7645
+      },
+      "timestamp": "2025-11-09T17:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-035",
+      "description": "Theft of catalytic converter from vehicle. Undercarriage damaged, converter removed.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2100 Park Lane, Dallas, TX 75220",
+        "lat": 32.8156,
+        "lng": -96.8334
+      },
+      "timestamp": "2025-11-09T20:50:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-036",
+      "description": "Downed power line on residential street. Live wire creating immediate danger to pedestrians.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "9200 Forest Lane, Dallas, TX 75243",
+        "lat": 32.8467,
+        "lng": -96.7234
+      },
+      "timestamp": "2025-11-10T07:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-037",
+      "description": "Drug activity suspected in downtown alley. Multiple individuals dealing substances openly.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "600 South Lamar Street, Dallas, TX 75202",
+        "lat": 32.7767,
+        "lng": -96.7912
+      },
+      "timestamp": "2025-11-10T10:40:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-038",
+      "description": "Rusted metal fencing on vacant lot. Broken sharp edges posing cut hazard to children.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5500 Peak Street, Dallas, TX 75214",
+        "lat": 32.8267,
+        "lng": -96.7023
+      },
+      "timestamp": "2025-11-10T13:25:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-039",
+      "description": "Assault at metro station in Uptown. Victim injured, suspect fled toward parking garage.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2900 Uptown Avenue, Dallas, TX 75201",
+        "lat": 32.8134,
+        "lng": -96.8056
+      },
+      "timestamp": "2025-11-10T16:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-040",
+      "description": "Missing curb markings on Routh Street. Lack of painted lines creating parking confusion.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2000 Routh Street, Dallas, TX 75201",
+        "lat": 32.7967,
+        "lng": -96.7934
+      },
+      "timestamp": "2025-11-10T18:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-041",
+      "description": "Purse snatching near downtown park. Victim pursued by thief, item not recovered.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Cleveland Street, Dallas, TX 75204",
+        "lat": 32.7845,
+        "lng": -96.7567
+      },
+      "timestamp": "2025-11-10T21:10:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-042",
+      "description": "Flood damage on Turtle Creek Boulevard. Water pooling in roadway creating impassable conditions.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2900 Turtle Creek Boulevard, Dallas, TX 75219",
+        "lat": 32.8056,
+        "lng": -96.8134
+      },
+      "timestamp": "2025-11-11T08:35:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-043",
+      "description": "Expired meter enforcement signs removed from parking lot. No indication of parking rules.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3600 McKinney Avenue, Dallas, TX 75204",
+        "lat": 32.8012,
+        "lng": -96.7756
+      },
+      "timestamp": "2025-11-11T11:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-044",
+      "description": "Window vandalism at storefront near Victory Park. Multiple panes of glass broken or graffitied.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2200 Victory Avenue, Dallas, TX 75219",
+        "lat": 32.7923,
+        "lng": -96.8089
+      },
+      "timestamp": "2025-11-11T14:50:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-045",
+      "description": "Theft from retail store in Lakewood. Electronics stolen from unlocked display case.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6200 Lakewood Drive, Dallas, TX 75231",
+        "lat": 32.8123,
+        "lng": -96.7234
+      },
+      "timestamp": "2025-11-11T17:35:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-046",
+      "description": "Pothole affecting drainage system on Inwood Road. Water accumulation during rain events.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "8300 Inwood Road, Dallas, TX 75209",
+        "lat": 32.8178,
+        "lng": -96.8423
+      },
+      "timestamp": "2025-11-11T19:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-047",
+      "description": "Stray dogs in park creating safety hazard. Multiple large dogs roaming without leashes.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3900 Lawther Drive, Dallas, TX 75214",
+        "lat": 32.8289,
+        "lng": -96.6867
+      },
+      "timestamp": "2025-11-12T06:25:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-048",
+      "description": "Burglary at residential home in Highland Park. Door forced open, electronics and jewelry stolen.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5100 Mockingbird Lane, Dallas, TX 75205",
+        "lat": 32.8089,
+        "lng": -96.7945
+      },
+      "timestamp": "2025-11-12T09:10:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-049",
+      "description": "Missing guardrail on pedestrian bridge. Structural component removed, creating fall hazard.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4200 Maple Avenue, Dallas, TX 75201",
+        "lat": 32.8112,
+        "lng": -96.7834
+      },
+      "timestamp": "2025-11-12T12:40:00Z",
+      "status": "open"
+    },
+    {
+      "id": "issue-050",
+      "description": "Illegal dumping in vacant lot near Dallas Medical District. Tires, construction debris, and household waste.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5300 Parkland Drive, Dallas, TX 75235",
+        "lat": 32.7845,
+        "lng": -96.8389
+      },
+      "timestamp": "2025-11-12T15:15:00Z",
+      "status": "open"
+    }
+  ]
+}
