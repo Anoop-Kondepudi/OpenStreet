@@ -23,15 +23,15 @@ export async function POST(
         const reportIndex = data.reports.findIndex((r: any) => r.id === id);
         
         if (reportIndex !== -1) {
-          // Increment votes
-          data.reports[reportIndex].votes = (data.reports[reportIndex].votes || 0) + 1;
+          // Increment downvotes
+          data.reports[reportIndex].downvotes = (data.reports[reportIndex].downvotes || 0) + 1;
           
           // Save back to file
           fs.writeFileSync(file.path, JSON.stringify(data, null, 2));
           
           return NextResponse.json({
             success: true,
-            votes: data.reports[reportIndex].votes,
+            downvotes: data.reports[reportIndex].downvotes,
           });
         }
       }
@@ -42,9 +42,9 @@ export async function POST(
       { status: 404 }
     );
   } catch (error) {
-    console.error("Error voting on report:", error);
+    console.error("Error downvoting report:", error);
     return NextResponse.json(
-      { error: "Failed to vote on report" },
+      { error: "Failed to downvote report" },
       { status: 500 }
     );
   }

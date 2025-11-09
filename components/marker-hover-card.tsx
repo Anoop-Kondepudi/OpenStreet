@@ -10,6 +10,7 @@ interface MarkerHoverCardProps {
   onDislike: () => void;
   onClose: () => void;
   position: { x: number; y: number };
+  userVote?: 'like' | 'dislike' | null;
 }
 
 export function MarkerHoverCard({
@@ -20,6 +21,7 @@ export function MarkerHoverCard({
   onDislike,
   onClose,
   position,
+  userVote,
 }: MarkerHoverCardProps) {
   return (
     <div
@@ -36,10 +38,14 @@ export function MarkerHoverCard({
           e.stopPropagation();
           onLike();
         }}
-        className="w-10 h-10 rounded-full bg-green-500 hover:bg-green-600 flex items-center justify-center shadow-lg transition-all hover:scale-110"
+        className={`w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-110 ${
+          userVote === 'like' 
+            ? 'bg-green-600 ring-2 ring-green-400 ring-offset-2' 
+            : 'bg-green-500 hover:bg-green-600'
+        }`}
         title="Same issue"
       >
-        <ThumbsUp className="h-5 w-5 text-white" />
+        <ThumbsUp className={`h-5 w-5 ${userVote === 'like' ? 'fill-white' : ''} text-white`} />
       </button>
 
       {/* Dislike Button - Red Circle */}
@@ -48,10 +54,14 @@ export function MarkerHoverCard({
           e.stopPropagation();
           onDislike();
         }}
-        className="w-10 h-10 rounded-full bg-red-500 hover:bg-red-600 flex items-center justify-center shadow-lg transition-all hover:scale-110"
+        className={`w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all hover:scale-110 ${
+          userVote === 'dislike' 
+            ? 'bg-red-600 ring-2 ring-red-400 ring-offset-2' 
+            : 'bg-red-500 hover:bg-red-600'
+        }`}
         title="Different issue"
       >
-        <ThumbsDown className="h-5 w-5 text-white" />
+        <ThumbsDown className={`h-5 w-5 ${userVote === 'dislike' ? 'fill-white' : ''} text-white`} />
       </button>
     </div>
   );

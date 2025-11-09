@@ -34,7 +34,7 @@
         "state": "TX",
         "address": "Fair Park, 1300 Robert B. Cullum Boulevard",
         "lat": 32.7765,
-        "lng": -96.7650
+        "lng": -96.765
       },
       "timestamp": "2025-11-01T16:45:00Z",
       "status": "open"
@@ -111,8 +111,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "Trinity River Trail, South Dallas",
-        "lat": 32.7650,
-        "lng": -96.8200
+        "lat": 32.765,
+        "lng": -96.82
       },
       "timestamp": "2025-11-03T14:05:00Z",
       "status": "open"
@@ -151,7 +151,7 @@
         "state": "TX",
         "address": "Gaston Avenue, East Dallas",
         "lat": 32.8055,
-        "lng": -96.7350
+        "lng": -96.735
       },
       "timestamp": "2025-11-04T10:10:00Z",
       "status": "open"
@@ -167,7 +167,8 @@
         "lng": -96.8355
       },
       "timestamp": "2025-11-04T12:35:00Z",
-      "status": "open"
+      "status": "open",
+      "downvotes": 1
     },
     {
       "id": "idea-014",
@@ -258,7 +259,8 @@
         "lng": -96.8545
       },
       "timestamp": "2025-11-06T08:15:00Z",
-      "status": "open"
+      "status": "open",
+      "votes": 1
     },
     {
       "id": "idea-021",
@@ -436,7 +438,7 @@
         "city": "Dallas",
         "state": "TX",
         "address": "Ross Avenue, Downtown",
-        "lat": 32.7810,
+        "lat": 32.781,
         "lng": -96.7925
       },
       "timestamp": "2025-11-09T14:00:00Z",

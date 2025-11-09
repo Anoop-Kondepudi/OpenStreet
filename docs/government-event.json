@@ -363,7 +363,7 @@
       },
       "timestamp": "2025-11-03T15:00:00Z",
       "status": "open",
-      "votes": 1
+      "votes": 2
     },
     {
       "id": "gov-event-029",
@@ -467,7 +467,8 @@
         "lng": -96.8456
       },
       "timestamp": "2025-11-11T11:00:00Z",
-      "status": "open"
+      "status": "open",
+      "votes": 1
     },
     {
       "id": "gov-event-037",

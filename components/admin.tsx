@@ -21,6 +21,7 @@ type Report = {
   timestamp: string;
   status: string;
   votes?: number;
+  downvotes?: number;
   title?: string;
 };
 

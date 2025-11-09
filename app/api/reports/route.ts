@@ -229,6 +229,7 @@ export async function POST(request: NextRequest) {
       description: finalDescription,
       title: generateTitle(finalDescription),
       votes: 0,
+      downvotes: 0,
       location: {
         lat: location.lat,
         lng: location.lng,

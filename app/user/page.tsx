@@ -22,6 +22,7 @@ type Report = {
   timestamp: string;
   status: string;
   votes?: number;
+  downvotes?: number;
   title?: string;
 };
 
@@ -255,7 +256,6 @@ export default function UserPage() {
               onReportSelect={handleReportSelect}
               showPopup={true}
               onMapClick={handleMapClick}
-              announcements={showAnnouncements ? events : []}
           />
         </div>
       </main>

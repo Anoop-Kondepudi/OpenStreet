@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import Map, { Marker, NavigationControl, ScaleControl, GeolocateControl, MapRef } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
 import issueData from "@/docs/issue.json";
@@ -9,7 +9,7 @@ import civilianEventData from "@/docs/civilian-event.json";
 import governmentEventData from "@/docs/government-event.json";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
+import { X, ThumbsUp, ThumbsDown } from "lucide-react";
 import { MarkerHoverCard } from "@/components/marker-hover-card";
 
 const MAPBOX_TOKEN = "pk.eyJ1IjoiemVsZG9tIiwiYSI6ImNtaHF2czcyeDEyaGcya3B6d3ZvY2hleDkifQ.2BQHylALQUj9cNYDuHijOQ";
@@ -28,6 +28,7 @@ type Report = {
   timestamp: string;
   status: string;
   votes?: number;
+  downvotes?: number;
   title?: string;
 };
 
@@ -49,8 +50,23 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: Map
   const [isPopupClosing, setIsPopupClosing] = useState(false);
   const [hoveredMarker, setHoveredMarker] = useState<{ report: Report; reportType: string } | null>(null);
   const [hoverPosition, setHoverPosition] = useState<{ x: number; y: number } | null>(null);
+  const [userVotes, setUserVotes] = useState<Record<string, 'like' | 'dislike'>>({});
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const mapRef = useRef<MapRef>(null);
+
+  // Load votes from localStorage on mount
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedVotes = localStorage.getItem('civic-link-votes');
+      if (savedVotes) {
+        try {
+          setUserVotes(JSON.parse(savedVotes));
+        } catch (e) {
+          console.error('Error loading votes from localStorage:', e);
+        }
+      }
+    }
+  }, []);
 
   const closePopup = useCallback(() => {
     setIsPopupClosing(true);
@@ -150,36 +166,93 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: Map
   const handleLike = async () => {
     if (!hoveredMarker) return;
     
+    const reportId = hoveredMarker.report.id;
+    const currentVote = userVotes[reportId];
+    
+    // If already liked, don't do anything
+    if (currentVote === 'like') {
+      handleHoverCardClose();
+      return;
+    }
+    
+    // Update UI immediately (optimistic update)
+    const newVotes = { ...userVotes, [reportId]: 'like' as const };
+    setUserVotes(newVotes);
+    localStorage.setItem('civic-link-votes', JSON.stringify(newVotes));
+    
+    handleHoverCardClose();
+    
+    // Send API request in background
     try {
-      const response = await fetch(`/api/reports/${hoveredMarker.report.id}/vote`, { 
+      const response = await fetch(`/api/reports/${reportId}/vote`, { 
         method: 'POST' 
       });
       
       if (response.ok) {
         const data = await response.json();
         console.log("Vote successful! New vote count:", data.votes);
-        
-        // Show success toast
-        const toastDiv = document.createElement('div');
-        toastDiv.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg z-50';
-        toastDiv.textContent = '👍 Vote recorded!';
-        document.body.appendChild(toastDiv);
-        setTimeout(() => toastDiv.remove(), 2000);
+      } else {
+        // Revert on failure
+        console.error("Vote failed, reverting...");
+        const revertedVotes = { ...userVotes };
+        delete revertedVotes[reportId];
+        setUserVotes(revertedVotes);
+        localStorage.setItem('civic-link-votes', JSON.stringify(revertedVotes));
       }
-      handleHoverCardClose();
     } catch (error) {
       console.error("Error voting:", error);
+      // Revert on error
+      const revertedVotes = { ...userVotes };
+      delete revertedVotes[reportId];
+      setUserVotes(revertedVotes);
+      localStorage.setItem('civic-link-votes', JSON.stringify(revertedVotes));
     }
   };
 
-  const handleDislike = () => {
+  const handleDislike = async () => {
     if (!hoveredMarker) return;
     
-    // Close hover card and trigger new report creation with nearby location
-    const report = hoveredMarker.report;
-    const position = hoverPosition;
+    const reportId = hoveredMarker.report.id;
+    const currentVote = userVotes[reportId];
+    
+    // If already disliked, don't do anything
+    if (currentVote === 'dislike') {
+      handleHoverCardClose();
+      return;
+    }
+    
+    // Update UI immediately (optimistic update)
+    const newVotes = { ...userVotes, [reportId]: 'dislike' as const };
+    setUserVotes(newVotes);
+    localStorage.setItem('civic-link-votes', JSON.stringify(newVotes));
+    
     handleHoverCardClose();
-    onReportSelect(report, position || undefined);
+    
+    // Send API request in background
+    try {
+      const response = await fetch(`/api/reports/${reportId}/downvote`, { 
+        method: 'POST' 
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Downvote successful! New downvote count:", data.downvotes);
+      } else {
+        // Revert on failure
+        console.error("Downvote failed, reverting...");
+        const revertedVotes = { ...userVotes };
+        delete revertedVotes[reportId];
+        setUserVotes(revertedVotes);
+        localStorage.setItem('civic-link-votes', JSON.stringify(revertedVotes));
+      }
+    } catch (error) {
+      console.error("Error downvoting:", error);
+      // Revert on error
+      const revertedVotes = { ...userVotes };
+      delete revertedVotes[reportId];
+      setUserVotes(revertedVotes);
+      localStorage.setItem('civic-link-votes', JSON.stringify(revertedVotes));
+    }
   };
 
   // Generate title from description (first 50 chars or until first period)
@@ -223,6 +296,7 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: Map
         {/* Issue Markers - Red 🔴 */}
         {issueData.reports.map((report: Report) => {
           const reportWithType = { ...report, type: "issue" };
+          const userVote = userVotes[report.id];
           return (
             <Marker
               key={report.id}
@@ -233,19 +307,39 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: Map
                 handleMarkerClick(reportWithType);
               }}
             >
-              <div
-                className="cursor-pointer hover:scale-110 transition-transform"
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  borderRadius: "50%",
-                  backgroundColor: "#ef4444",
-                  border: "2px solid #ffffff",
-                  boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                }}
-                onMouseEnter={() => handleMarkerHover(reportWithType, "issue")}
-                onMouseLeave={handleMarkerLeave}
-              />
+              <div className="relative">
+                <div
+                  className="cursor-pointer hover:scale-110 transition-transform"
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    borderRadius: "50%",
+                    backgroundColor: "#ef4444",
+                    border: "2px solid #ffffff",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                  }}
+                  onMouseEnter={() => handleMarkerHover(reportWithType, "issue")}
+                  onMouseLeave={handleMarkerLeave}
+                />
+                {userVote && (
+                  <div
+                    className="absolute -top-3 -right-3 rounded-full flex items-center justify-center animate-in zoom-in duration-200"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      backgroundColor: userVote === 'like' ? '#22c55e' : '#ef4444',
+                      border: "2px solid #ffffff",
+                      boxShadow: "0 2px 6px rgba(0,0,0,0.4)",
+                    }}
+                  >
+                    {userVote === 'like' ? (
+                      <ThumbsUp className="h-3.5 w-3.5 text-white fill-white" />
+                    ) : (
+                      <ThumbsDown className="h-3.5 w-3.5 text-white fill-white" />
+                    )}
+                  </div>
+                )}
+              </div>
             </Marker>
           );
         })}
@@ -253,6 +347,7 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: Map
         {/* Idea Markers - Blue 💡 */}
         {ideaData.reports.map((report: Report) => {
           const reportWithType = { ...report, type: "idea" };
+          const userVote = userVotes[report.id];
           return (
             <Marker
               key={report.id}
@@ -263,19 +358,39 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: Map
                 handleMarkerClick(reportWithType);
               }}
             >
-              <div
-                className="cursor-pointer hover:scale-110 transition-transform"
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  borderRadius: "50%",
-                  backgroundColor: "#3b82f6",
-                  border: "2px solid #ffffff",
-                  boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                }}
-                onMouseEnter={() => handleMarkerHover(reportWithType, "idea")}
-                onMouseLeave={handleMarkerLeave}
-              />
+              <div className="relative">
+                <div
+                  className="cursor-pointer hover:scale-110 transition-transform"
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    borderRadius: "50%",
+                    backgroundColor: "#3b82f6",
+                    border: "2px solid #ffffff",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                  }}
+                  onMouseEnter={() => handleMarkerHover(reportWithType, "idea")}
+                  onMouseLeave={handleMarkerLeave}
+                />
+                {userVote && (
+                  <div
+                    className="absolute -top-3 -right-3 rounded-full flex items-center justify-center animate-in zoom-in duration-200"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      backgroundColor: userVote === 'like' ? '#22c55e' : '#ef4444',
+                      border: "2px solid #ffffff",
+                      boxShadow: "0 2px 6px rgba(0,0,0,0.4)",
+                    }}
+                  >
+                    {userVote === 'like' ? (
+                      <ThumbsUp className="h-3.5 w-3.5 text-white fill-white" />
+                    ) : (
+                      <ThumbsDown className="h-3.5 w-3.5 text-white fill-white" />
+                    )}
+                  </div>
+                )}
+              </div>
             </Marker>
           );
         })}
@@ -283,6 +398,7 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: Map
         {/* Civilian Event Markers - Green 👥 */}
         {civilianEventData.reports.map((report: Report) => {
           const reportWithType = { ...report, type: "civilian-event" };
+          const userVote = userVotes[report.id];
           return (
             <Marker
               key={report.id}
@@ -293,19 +409,39 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: Map
                 handleMarkerClick(reportWithType);
               }}
             >
-              <div
-                className="cursor-pointer hover:scale-110 transition-transform"
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  borderRadius: "50%",
-                  backgroundColor: "#10b981",
-                  border: "2px solid #ffffff",
-                  boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                }}
-                onMouseEnter={() => handleMarkerHover(reportWithType, "civilian-event")}
-                onMouseLeave={handleMarkerLeave}
-              />
+              <div className="relative">
+                <div
+                  className="cursor-pointer hover:scale-110 transition-transform"
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    borderRadius: "50%",
+                    backgroundColor: "#10b981",
+                    border: "2px solid #ffffff",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                  }}
+                  onMouseEnter={() => handleMarkerHover(reportWithType, "civilian-event")}
+                  onMouseLeave={handleMarkerLeave}
+                />
+                {userVote && (
+                  <div
+                    className="absolute -top-3 -right-3 rounded-full flex items-center justify-center animate-in zoom-in duration-200"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      backgroundColor: userVote === 'like' ? '#22c55e' : '#ef4444',
+                      border: "2px solid #ffffff",
+                      boxShadow: "0 2px 6px rgba(0,0,0,0.4)",
+                    }}
+                  >
+                    {userVote === 'like' ? (
+                      <ThumbsUp className="h-3.5 w-3.5 text-white fill-white" />
+                    ) : (
+                      <ThumbsDown className="h-3.5 w-3.5 text-white fill-white" />
+                    )}
+                  </div>
+                )}
+              </div>
             </Marker>
           );
         })}
@@ -313,6 +449,7 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: Map
         {/* Government Event Markers - Purple 🏛️ */}
         {governmentEventData.reports.map((report: Report) => {
           const reportWithType = { ...report, type: "government-event" };
+          const userVote = userVotes[report.id];
           return (
             <Marker
               key={report.id}
@@ -323,19 +460,39 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: Map
                 handleMarkerClick(reportWithType);
               }}
             >
-              <div
-                className="cursor-pointer hover:scale-110 transition-transform"
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  borderRadius: "50%",
-                  backgroundColor: "#8b5cf6",
-                  border: "2px solid #ffffff",
-                  boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                }}
-                onMouseEnter={() => handleMarkerHover(reportWithType, "government-event")}
-                onMouseLeave={handleMarkerLeave}
-              />
+              <div className="relative">
+                <div
+                  className="cursor-pointer hover:scale-110 transition-transform"
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    borderRadius: "50%",
+                    backgroundColor: "#8b5cf6",
+                    border: "2px solid #ffffff",
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                  }}
+                  onMouseEnter={() => handleMarkerHover(reportWithType, "government-event")}
+                  onMouseLeave={handleMarkerLeave}
+                />
+                {userVote && (
+                  <div
+                    className="absolute -top-3 -right-3 rounded-full flex items-center justify-center animate-in zoom-in duration-200"
+                    style={{
+                      width: "24px",
+                      height: "24px",
+                      backgroundColor: userVote === 'like' ? '#22c55e' : '#ef4444',
+                      border: "2px solid #ffffff",
+                      boxShadow: "0 2px 6px rgba(0,0,0,0.4)",
+                    }}
+                  >
+                    {userVote === 'like' ? (
+                      <ThumbsUp className="h-3.5 w-3.5 text-white fill-white" />
+                    ) : (
+                      <ThumbsDown className="h-3.5 w-3.5 text-white fill-white" />
+                    )}
+                  </div>
+                )}
+              </div>
             </Marker>
           );
         })}
@@ -463,6 +620,7 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: Map
             onDislike={handleDislike}
             onClose={handleHoverCardClose}
             position={hoverPosition}
+            userVote={userVotes[hoveredMarker.report.id] || null}
           />
         </div>
       )}
