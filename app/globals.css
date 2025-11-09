@@ -97,3 +97,7 @@
     animation: fadeOutScale 200ms ease-in forwards;
   }
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+}

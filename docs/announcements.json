@@ -1,0 +1,15 @@
+{
+  "announcements": [
+    {
+      "id": "announcement-1762698672021",
+      "title": "Road Update: Pothole Fixed",
+      "summary": "**Summary of Government Report: \"Road Update: Pothole Fixed\"**  \n**Report ID:** issue-046 | **Location:** 8300 Inwood Road, Dallas, TX 75209  \n\nThe City of Dallas has resolved the pothole issue reported on Inwood Road (Report ID: issue-046), which had caused water accumulation and drainage problems during rain events. The repair work has been completed, restoring proper drainage and eliminating the hazard.  \n\nCitizens are advised that the area is now safe for travel, and the drainage system is functioning as intended. No further action is required from residents. For ongoing concerns or additional reports, contact the City’s Public Works Department.  \n\nThis update addresses the original citizen-submitted issue (Report ID: issue-046) and confirms the problem has been resolved. Thank you for your patience and cooperation.\n",
+      "reportType": "issue",
+      "relatedReportId": "issue-046",
+      "pdfFileName": "announcement-1762698672013-report.pdf",
+      "pdfUrl": "/announcements/announcement-1762698672013-report.pdf",
+      "createdAt": "2025-11-09T14:31:12.021Z",
+      "status": "active"
+    }
+  ]
+}

@@ -8,14 +8,17 @@ type Report = {
   type?: string;
   description: string;
   location: {
-    city: string;
-    state: string;
-    address: string;
+    city?: string;
+    state?: string;
+    address?: string;
     lat: number;
     lng: number;
   };
   timestamp: string;
   status: string;
+  votes?: number;
+  downvotes?: number;
+  title?: string;
 };
 
 interface AnalyticsOverviewProps {
@@ -115,9 +118,6 @@ export function AnalyticsOverview({ selectedReport }: AnalyticsOverviewProps) {
               </h4>
               <div className="text-sm text-foreground bg-muted/50 p-4 rounded-lg border border-border">
                 <p className="font-medium">{selectedReport.location.address}</p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  {selectedReport.location.city}, {selectedReport.location.state}
-                </p>
                 <p className="text-xs text-muted-foreground mt-1">
                   {selectedReport.location.lat.toFixed(4)}, {selectedReport.location.lng.toFixed(4)}
                 </p>

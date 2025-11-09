@@ -9,14 +9,17 @@ type Report = {
   type?: string;
   description: string;
   location: {
-    city: string;
-    state: string;
-    address: string;
+    city?: string;
+    state?: string;
+    address?: string;
     lat: number;
     lng: number;
   };
   timestamp: string;
   status: string;
+  votes?: number;
+  downvotes?: number;
+  title?: string;
 };
 
 interface ReportModalProps {
@@ -133,9 +136,6 @@ export function ReportModal({ report, isOpen, isClosing = false, onClose, marker
               </h3>
               <div className="bg-muted/50 border border-border rounded-lg p-4 space-y-1">
                 <p className="text-sm font-medium text-foreground">{report.location.address}</p>
-                <p className="text-sm text-muted-foreground">
-                  {report.location.city}, {report.location.state}
-                </p>
                 <p className="text-xs text-muted-foreground">
                   {report.location.lat.toFixed(4)}, {report.location.lng.toFixed(4)}
                 </p>
