@@ -1,6 +1,19 @@
 {
   "reports": [
     {
+      "id": "issue-053",
+      "description": "test",
+      "location": {
+        "city": "",
+        "state": "",
+        "address": "",
+        "lat": 32.86871574788502,
+        "lng": -96.76601104736348
+      },
+      "timestamp": "2025-11-09T03:37:15.697Z",
+      "status": "open"
+    },
+    {
       "id": "issue-052",
       "description": "I got robbed by some gangsters in this area. Please dont visit here.",
       "location": {

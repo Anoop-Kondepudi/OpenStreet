@@ -151,12 +151,7 @@ export default function UserPage() {
       if (response.ok) {
         console.log("✅ Report saved successfully:", data.report);
         handleCloseCreateModal();
-
-        // Reload the page to show the new marker
-        // In a production app, you'd update the state instead
-        setTimeout(() => {
-          window.location.reload();
-        }, 300);
+        // Next.js fast refresh will automatically update the map with the new marker
       } else {
         console.error("❌ Failed to save report:", data.error);
         alert(`Failed to save report: ${data.error}`);

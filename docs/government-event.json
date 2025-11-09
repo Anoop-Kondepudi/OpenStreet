@@ -20,8 +20,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street, Council Chambers",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.7853,
+        "lng": -96.8095
       },
       "timestamp": "2025-11-02T09:00:00Z",
       "status": "open"
@@ -72,8 +72,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.7835,
+        "lng": -96.8082
       },
       "timestamp": "2025-11-06T18:00:00Z",
       "status": "open"
@@ -163,8 +163,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "6101 Maple Avenue",
-        "lat": 32.8076,
-        "lng": -96.8111
+        "lat": 32.8234,
+        "lng": -96.7923
       },
       "timestamp": "2025-11-13T18:00:00Z",
       "status": "open"
@@ -202,8 +202,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.7848,
+        "lng": -96.8097
       },
       "timestamp": "2025-11-16T09:00:00Z",
       "status": "open"
@@ -306,8 +306,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.8234,
+        "lng": -96.7456
       },
       "timestamp": "2025-11-24T18:00:00Z",
       "status": "open"
@@ -319,8 +319,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "6101 Maple Avenue",
-        "lat": 32.8076,
-        "lng": -96.8111
+        "lat": 32.7823,
+        "lng": -96.7534
       },
       "timestamp": "2025-11-25T10:00:00Z",
       "status": "open"
@@ -332,8 +332,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.7623,
+        "lng": -96.7834
       },
       "timestamp": "2025-11-01T17:00:00Z",
       "status": "open"
@@ -371,8 +371,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.8123,
+        "lng": -96.7612
       },
       "timestamp": "2025-11-04T18:00:00Z",
       "status": "open"
@@ -410,8 +410,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "6101 Maple Avenue",
-        "lat": 32.8076,
-        "lng": -96.8111
+        "lat": 32.8367,
+        "lng": -96.7645
       },
       "timestamp": "2025-11-07T13:00:00Z",
       "status": "open"
@@ -423,8 +423,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.8456,
+        "lng": -96.7923
       },
       "timestamp": "2025-11-08T16:00:00Z",
       "status": "open"
@@ -449,8 +449,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.7734,
+        "lng": -96.7712
       },
       "timestamp": "2025-11-10T14:00:00Z",
       "status": "open"
@@ -475,8 +475,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.8312,
+        "lng": -96.8245
       },
       "timestamp": "2025-11-12T18:00:00Z",
       "status": "open"
@@ -501,8 +501,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "6101 Maple Avenue",
-        "lat": 32.8076,
-        "lng": -96.8111
+        "lat": 32.7945,
+        "lng": -96.8345
       },
       "timestamp": "2025-11-14T09:00:00Z",
       "status": "open"
@@ -514,8 +514,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.7945,
+        "lng": -96.7534
       },
       "timestamp": "2025-11-15T14:00:00Z",
       "status": "open"
@@ -527,8 +527,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.8523,
+        "lng": -96.7189
       },
       "timestamp": "2025-11-16T17:00:00Z",
       "status": "open"
@@ -566,8 +566,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.7567,
+        "lng": -96.8156
       },
       "timestamp": "2025-11-19T16:00:00Z",
       "status": "open"
@@ -592,8 +592,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.8156,
+        "lng": -96.7456
       },
       "timestamp": "2025-11-21T18:00:00Z",
       "status": "open"
@@ -631,8 +631,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "1500 Marilla Street",
-        "lat": 32.7843,
-        "lng": -96.8089
+        "lat": 32.7889,
+        "lng": -96.8234
       },
       "timestamp": "2025-11-24T15:00:00Z",
       "status": "open"
@@ -644,8 +644,8 @@
         "city": "Dallas",
         "state": "TX",
         "address": "6101 Maple Avenue",
-        "lat": 32.8076,
-        "lng": -96.8111
+        "lat": 32.8512,
+        "lng": -96.7278
       },
       "timestamp": "2025-11-25T11:00:00Z",
       "status": "open"
