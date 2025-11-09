@@ -48,7 +48,7 @@ async function enhanceDescription(description: string, reportType: string): Prom
     const typeContext = {
       'issue': 'a civic issue or problem',
       'idea': 'a civic improvement proposal or idea',
-      'civilian-event': 'a community event (like food donation or cleanup)',
+      'Community-event': 'a Community event (like food donation or cleanup)',
       'government-event': 'a government-organized event'
     }[reportType] || 'a civic report';
 
@@ -84,7 +84,7 @@ async function generateDescriptionFromImage(imageBase64: string, imageType: stri
     const typeContext = {
       'issue': 'Focus on identifying problems, safety concerns, or infrastructure issues.',
       'idea': 'Focus on improvement opportunities and suggestions.',
-      'civilian-event': 'Focus on community events like donations, cleanups, or gatherings.',
+      'Community-event': 'Focus on Community events like donations, cleanups, or gatherings.',
       'government-event': 'Focus on official government activities or public services.'
     }[reportType] || 'Be specific and factual.';
 
@@ -148,10 +148,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const validTypes = ['issue', 'idea', 'civilian-event', 'government-event'];
+    const validTypes = ['issue', 'idea', 'Community-event', 'government-event'];
     if (!validTypes.includes(type)) {
       return NextResponse.json(
-        { error: 'Invalid report type. Must be "issue", "idea", "civilian-event", or "government-event"' },
+        { error: 'Invalid report type. Must be "issue", "idea", "Community-event", or "government-event"' },
         { status: 400 }
       );
     }
@@ -206,7 +206,7 @@ export async function POST(request: NextRequest) {
     const prefixMap: Record<string, string> = {
       'issue': 'issue',
       'idea': 'idea',
-      'civilian-event': 'civ-event',
+      'Community-event': 'civ-event',
       'government-event': 'gov-event'
     };
     const prefix = prefixMap[type];

@@ -11,7 +11,7 @@ import { GeoJsonProperties } from "geojson";
 export const CATEGORY_COLORS: Record<ReportType, string> = {
   issue: "#ef4444", // red-500
   idea: "#3b82f6", // blue-500
-  "civilian-event": "#10b981", // green-500
+  "Community-event": "#10b981", // green-500
   "government-event": "#8b5cf6", // purple-500
 };
 
@@ -60,7 +60,7 @@ export function calculatePieSegments(
   let currentAngle = 0;
 
   // Process in a consistent order
-  const types: ReportType[] = ["issue", "idea", "civilian-event", "government-event"];
+  const types: ReportType[] = ["issue", "idea", "Community-event", "government-event"];
 
   types.forEach((type) => {
     const count = categoryCounts[type];
@@ -134,7 +134,7 @@ export function initializeCategoryCounts(): CategoryCounts {
   return {
     issue: 0,
     idea: 0,
-    "civilian-event": 0,
+    "Community-event": 0,
     "government-event": 0,
   };
 }

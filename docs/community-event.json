@@ -251,7 +251,7 @@
     },
     {
       "id": "civ-event-019",
-      "description": "Book club meeting at Richardson community center, discussing 'The Midnight Library'. Thursday 7 PM. All readers welcome!",
+      "description": "Book club meeting at Richardson Community center, discussing 'The Midnight Library'. Thursday 7 PM. All readers welcome!",
       "location": {
         "city": "Dallas",
         "state": "TX",
@@ -264,7 +264,7 @@
     },
     {
       "id": "civ-event-020",
-      "description": "Massive yard sale at Prestonwood Park community pavilion! Saturday 8 AM-4 PM. Furniture, clothes, electronics.",
+      "description": "Massive yard sale at Prestonwood Park Community pavilion! Saturday 8 AM-4 PM. Furniture, clothes, electronics.",
       "location": {
         "city": "Dallas",
         "state": "TX",
@@ -316,7 +316,7 @@
     },
     {
       "id": "civ-event-024",
-      "description": "Neighborhood watch monthly meeting at Northwest Dallas community center. Tuesday 6:30 PM discussing property safety.",
+      "description": "Neighborhood watch monthly meeting at Northwest Dallas Community center. Tuesday 6:30 PM discussing property safety.",
       "location": {
         "city": "Dallas",
         "state": "TX",
@@ -459,7 +459,7 @@
     },
     {
       "id": "civ-event-035",
-      "description": "Monthly neighborhood watch meeting at Eagle Pass community center Tuesday 7 PM. Safety presentations included.",
+      "description": "Monthly neighborhood watch meeting at Eagle Pass Community center Tuesday 7 PM. Safety presentations included.",
       "location": {
         "city": "Dallas",
         "state": "TX",
@@ -537,7 +537,7 @@
     },
     {
       "id": "civ-event-041",
-      "description": "Block party on North Park Drive with street performers, food vendors, and community games Saturday 4-9 PM!",
+      "description": "Block party on North Park Drive with street performers, food vendors, and Community games Saturday 4-9 PM!",
       "location": {
         "city": "Dallas",
         "state": "TX",
@@ -615,7 +615,7 @@
     },
     {
       "id": "civ-event-047",
-      "description": "Garage sale and community cleanup day at 7500 Greenville Avenue Saturday 8 AM-12 PM.",
+      "description": "Garage sale and Community cleanup day at 7500 Greenville Avenue Saturday 8 AM-12 PM.",
       "location": {
         "city": "Dallas",
         "state": "TX",
@@ -628,7 +628,7 @@
     },
     {
       "id": "civ-event-048",
-      "description": "Book swap and social hour at Highland Park community library Thursday 6:30 PM. Bring books to exchange!",
+      "description": "Book swap and social hour at Highland Park Community library Thursday 6:30 PM. Bring books to exchange!",
       "location": {
         "city": "Dallas",
         "state": "TX",

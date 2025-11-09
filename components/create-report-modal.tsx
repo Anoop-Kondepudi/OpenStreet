@@ -18,7 +18,7 @@ interface CreateReportModalProps {
   onClose: () => void;
   location: { lat: number; lng: number } | null;
   onSubmit: (report: {
-    type: "issue" | "idea" | "civilian-event" | "government-event";
+    type: "issue" | "idea" | "-event" | "government-event";
     description: string;
     location: {
       lat: number;
@@ -29,7 +29,7 @@ interface CreateReportModalProps {
 }
 
 export function CreateReportModal({ isOpen, isClosing = false, onClose, location, onSubmit }: CreateReportModalProps) {
-  const [reportType, setReportType] = useState<"issue" | "idea" | "civilian-event" | "government-event">("issue");
+  const [reportType, setReportType] = useState<"issue" | "idea" | "-event" | "government-event">("issue");
   const [description, setDescription] = useState("");
   const [images, setImages] = useState<ImageData[]>([]);
   const [isUploading, setIsUploading] = useState(false);
@@ -158,7 +158,7 @@ export function CreateReportModal({ isOpen, isClosing = false, onClose, location
       border: 'border-blue-500/20',
       icon: Lightbulb
     },
-    'civilian-event': {
+    '-event': {
       accent: 'text-green-500',
       bg: 'bg-green-500/10',
       border: 'border-green-500/20',
@@ -227,7 +227,7 @@ export function CreateReportModal({ isOpen, isClosing = false, onClose, location
               <Label className="text-sm font-semibold text-foreground/80 mb-3 block">
                 Report Type
               </Label>
-              <RadioGroup value={reportType} onValueChange={(value) => setReportType(value as "issue" | "idea" | "civilian-event" | "government-event")}>
+              <RadioGroup value={reportType} onValueChange={(value) => setReportType(value as "issue" | "idea" | "-event" | "government-event")}>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="issue" id="issue" />
@@ -244,10 +244,10 @@ export function CreateReportModal({ isOpen, isClosing = false, onClose, location
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="civilian-event" id="civilian-event" />
-                    <Label htmlFor="civilian-event" className="cursor-pointer flex items-center gap-2 text-sm">
+                    <RadioGroupItem value="-event" id="-event" />
+                    <Label htmlFor="-event" className="cursor-pointer flex items-center gap-2 text-sm">
                       <Users className="h-4 w-4 text-green-500" />
-                      Civilian Event
+                       Event
                     </Label>
                   </div>
                   <div className="flex items-center space-x-2">

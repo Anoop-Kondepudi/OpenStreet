@@ -141,7 +141,7 @@ export default function UserPage() {
   };
 
   const handleSubmitReport = async (report: {
-    type: "issue" | "idea" | "civilian-event" | "government-event";
+    type: "issue" | "idea" | "Community-event" | "government-event";
     description: string;
     location: {
       lat: number;
@@ -240,9 +240,8 @@ export default function UserPage() {
       {/* Header */}
       <header className="border-b bg-card px-6 py-4 flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Civic Link</h1>
           <p className="text-sm text-muted-foreground mt-1">
-            View community reports and city announcements in your area
+            View Community reports and city announcements in your area
           </p>
         </div>
         <AnnouncementsDropdown announcements={events} onToggle={setShowAnnouncements}/>

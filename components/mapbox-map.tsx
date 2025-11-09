@@ -6,7 +6,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import Supercluster from "supercluster";
 import issueData from "@/docs/issue.json";
 import ideaData from "@/docs/idea.json";
-import civilianEventData from "@/docs/civilian-event.json";
+import CommunityEventData from "@/docs/Community-event.json";
 import governmentEventData from "@/docs/government-event.json";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -53,7 +53,7 @@ export interface HeatmapPoint {
   breakdown: {
     issues: number;
     ideas: number;
-    civilianEvents: number;
+    CommunityEvents: number;
     governmentEvents: number;
   };
 }
@@ -97,7 +97,7 @@ export function MapboxMap({
   const [categoryFilters, setCategoryFilters] = useState<CategoryFilterState>({
     issue: true,
     idea: true,
-    "civilian-event": true,
+    "Community-event": true,
     "government-event": true,
   });
 
@@ -127,7 +127,7 @@ export function MapboxMap({
     const reports = [
       ...issueData.reports.map(r => ({ ...r, type: "issue" as const })),
       ...ideaData.reports.map(r => ({ ...r, type: "idea" as const })),
-      ...civilianEventData.reports.map(r => ({ ...r, type: "civilian-event" as const })),
+      ...CommunityEventData.reports.map(r => ({ ...r, type: "Community-event" as const })),
       ...governmentEventData.reports.map(r => ({ ...r, type: "government-event" as const })),
     ];
 
@@ -140,7 +140,7 @@ export function MapboxMap({
     return {
       issue: issueData.reports.length,
       idea: ideaData.reports.length,
-      "civilian-event": civilianEventData.reports.length,
+      "Community-event": CommunityEventData.reports.length,
       "government-event": governmentEventData.reports.length,
     };
   }, []);
@@ -163,7 +163,7 @@ export function MapboxMap({
         categoryCounts: {
           issue: point.properties.report.type === "issue" ? 1 : 0,
           idea: point.properties.report.type === "idea" ? 1 : 0,
-          "civilian-event": point.properties.report.type === "civilian-event" ? 1 : 0,
+          "Community-event": point.properties.report.type === "Community-event" ? 1 : 0,
           "government-event": point.properties.report.type === "government-event" ? 1 : 0,
         }
       }
@@ -210,7 +210,7 @@ export function MapboxMap({
           intensity: point.intensity,
           issues: point.breakdown.issues,
           ideas: point.breakdown.ideas,
-          civilianEvents: point.breakdown.civilianEvents,
+          CommunityEvents: point.breakdown.CommunityEvents,
           governmentEvents: point.breakdown.governmentEvents
         }
       }))
@@ -699,7 +699,7 @@ export function MapboxMap({
                   <p className="text-sm text-muted-foreground mb-3">
                     {popupInfo.type === "issue" ? "Issue Report" :
                      popupInfo.type === "idea" ? "Idea" :
-                     popupInfo.type === "civilian-event" ? "Civilian Event" :
+                     popupInfo.type === "Community-event" ? "Community Event" :
                      "Government Event"}
                   </p>
                   <Button

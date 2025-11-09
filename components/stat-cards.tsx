@@ -2,22 +2,22 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, ShieldAlert, Lightbulb, Users, Building2 } from "lucide-react";
 import issueData from "@/docs/issue.json";
 import ideaData from "@/docs/idea.json";
-import civilianEventData from "@/docs/civilian-event.json";
+import CommunityEventData from "@/docs/Community-event.json";
 import governmentEventData from "@/docs/government-event.json";
 
 // Calculate metrics from JSON data
 const issueReports = issueData.reports.length;
 const ideaReports = ideaData.reports.length;
-const civilianEventReports = civilianEventData.reports.length;
+const CommunityEventReports = CommunityEventData.reports.length;
 const governmentEventReports = governmentEventData.reports.length;
-const totalReports = issueReports + ideaReports + civilianEventReports + governmentEventReports;
+const totalReports = issueReports + ideaReports + CommunityEventReports + governmentEventReports;
 
 // Calculate reports today (2025-11-09)
 const today = "2025-11-09";
 const reportsToday = [
   ...issueData.reports,
   ...ideaData.reports,
-  ...civilianEventData.reports,
+  ...CommunityEventData.reports,
   ...governmentEventData.reports
 ].filter((report) => report.timestamp.startsWith(today)).length;
 
@@ -26,7 +26,7 @@ const stats = [
     title: "Total Reports",
     value: totalReports.toString(),
     icon: FileText,
-    trend: `${issueReports} issues, ${ideaReports} ideas, ${civilianEventReports + governmentEventReports} events`,
+    trend: `${issueReports} issues, ${ideaReports} ideas, ${CommunityEventReports + governmentEventReports} events`,
     trendUp: true,
   },
   {
@@ -44,10 +44,10 @@ const stats = [
     trendUp: true,
   },
   {
-    title: "Civilian Events",
-    value: civilianEventReports.toString(),
+    title: "Community Events",
+    value: CommunityEventReports.toString(),
     icon: Users,
-    trend: `${Math.round((civilianEventReports / totalReports) * 100)}% of total`,
+    trend: `${Math.round((CommunityEventReports / totalReports) * 100)}% of total`,
     trendUp: true,
   },
   {

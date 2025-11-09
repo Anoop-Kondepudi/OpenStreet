@@ -48,12 +48,12 @@ export function ReportModal({ report, isOpen, isClosing = false, onClose, marker
       icon: Lightbulb,
       title: 'Idea'
     },
-    'civilian-event': {
+    'Community-event': {
       accent: 'text-green-500',
       bg: 'bg-green-500/10',
       border: 'border-green-500/20',
       icon: Users,
-      title: 'Civilian Event'
+      title: 'Community Event'
     },
     'government-event': {
       accent: 'text-purple-500',

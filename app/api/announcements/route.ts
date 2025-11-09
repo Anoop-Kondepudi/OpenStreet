@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
       const files = [
         { name: "issue.json", path: path.join(process.cwd(), "docs", "issue.json") },
         { name: "idea.json", path: path.join(process.cwd(), "docs", "idea.json") },
-        { name: "civilian-event.json", path: path.join(process.cwd(), "docs", "civilian-event.json") },
+        { name: "Community-event.json", path: path.join(process.cwd(), "docs", "Community-event.json") },
         { name: "government-event.json", path: path.join(process.cwd(), "docs", "government-event.json") },
       ];
 

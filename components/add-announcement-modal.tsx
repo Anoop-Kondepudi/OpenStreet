@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { X, Upload, FileText, Loader2 } from "lucide-react";
 import issueData from "@/docs/issue.json";
 import ideaData from "@/docs/idea.json";
-import civilianEventData from "@/docs/civilian-event.json";
+import CommunityEventData from "@/docs/Community-event.json";
 import governmentEventData from "@/docs/government-event.json";
 
 interface AddAnnouncementModalProps {
@@ -43,7 +43,7 @@ export function AddAnnouncementModal({ isOpen, onClose, onSuccess }: AddAnnounce
         reports = ideaData.reports.map(r => ({ ...r, type: "idea" }));
         break;
       case "event":
-        reports = [...civilianEventData.reports, ...governmentEventData.reports].map(r => ({ ...r, type: "event" }));
+        reports = [...CommunityEventData.reports, ...governmentEventData.reports].map(r => ({ ...r, type: "event" }));
         break;
     }
     

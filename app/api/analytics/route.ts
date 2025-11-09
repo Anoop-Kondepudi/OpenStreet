@@ -37,7 +37,7 @@ interface GeographicCluster {
   breakdown: {
     issues: number;
     ideas: number;
-    civilianEvents: number;
+    CommunityEvents: number;
     governmentEvents: number;
   };
   reports: Report[];
@@ -60,7 +60,7 @@ interface AnalyticsResponse {
     breakdown: {
       issues: number;
       ideas: number;
-      civilianEvents: number;
+      CommunityEvents: number;
       governmentEvents: number;
     };
   }>;
@@ -68,7 +68,7 @@ interface AnalyticsResponse {
     totalReports: number;
     totalIssues: number;
     totalIdeas: number;
-    totalCivilianEvents: number;
+    totalCommunityEvents: number;
     totalGovernmentEvents: number;
   };
 }
@@ -96,7 +96,7 @@ async function readAllReports() {
   const fileTypes = [
     { file: 'issue.json', type: 'issue' },
     { file: 'idea.json', type: 'idea' },
-    { file: 'civilian-event.json', type: 'civilian-event' },
+    { file: 'Community-event.json', type: 'Community-event' },
     { file: 'government-event.json', type: 'government-event' }
   ];
 
@@ -140,7 +140,7 @@ function createGeographicClusters(reports: Array<Report & { type: string }>, rad
       breakdown: {
         issues: 0,
         ideas: 0,
-        civilianEvents: 0,
+        CommunityEvents: 0,
         governmentEvents: 0
       },
       reports: []
@@ -169,8 +169,8 @@ function createGeographicClusters(reports: Array<Report & { type: string }>, rad
           case 'idea':
             cluster.breakdown.ideas++;
             break;
-          case 'civilian-event':
-            cluster.breakdown.civilianEvents++;
+          case 'Community-event':
+            cluster.breakdown.CommunityEvents++;
             break;
           case 'government-event':
             cluster.breakdown.governmentEvents++;
@@ -183,7 +183,7 @@ function createGeographicClusters(reports: Array<Report & { type: string }>, rad
     cluster.intensity =
       cluster.breakdown.issues * 2 + // Issues count double
       cluster.breakdown.ideas * 1 +
-      cluster.breakdown.civilianEvents * 0.5 +
+      cluster.breakdown.CommunityEvents * 0.5 +
       cluster.breakdown.governmentEvents * 0.5;
 
     // Only add cluster if it has reports
@@ -207,7 +207,7 @@ async function generateSentimentAnalysis(reports: Array<Report & { type: string 
     // Prepare data summary for AI
     const issueReports = reports.filter(r => r.type === 'issue');
     const ideaReports = reports.filter(r => r.type === 'idea');
-    const civilianEventReports = reports.filter(r => r.type === 'civilian-event');
+    const CommunityEventReports = reports.filter(r => r.type === 'Community-event');
     const governmentEventReports = reports.filter(r => r.type === 'government-event');
 
     // Get top issues by votes
@@ -230,10 +230,10 @@ CIVIC DATA SUMMARY:
 Total Reports: ${reports.length}
 - Issues: ${issueReports.length} (Problems/Concerns)
 - Ideas: ${ideaReports.length} (Improvement Suggestions)
-- Civilian Events: ${civilianEventReports.length} (Community Activities)
+- Community Events: ${CommunityEventReports.length} (Community Activities)
 - Government Events: ${governmentEventReports.length} (Official Events)
 
-TOP ISSUES BY COMMUNITY VOTES:
+TOP ISSUES BY Community VOTES:
 ${topIssues.map((desc, i) => `${i + 1}. ${desc}`).join('\n')}
 
 ISSUE CATEGORIES:
@@ -247,7 +247,7 @@ AVERAGE ENGAGEMENT:
     const messages: ChatCompletionMessageParam[] = [
       {
         role: "system",
-        content: "You are a civic analytics expert. Analyze city health and community engagement data. Provide clear, actionable insights about the city's wellbeing, citizen engagement, and areas needing attention. Be professional, balanced, and data-driven."
+        content: "You are a civic analytics expert. Analyze city health and Community engagement data. Provide clear, actionable insights about the city's wellbeing, citizen engagement, and areas needing attention. Be professional, balanced, and data-driven."
       },
       {
         role: "user",
@@ -258,8 +258,8 @@ ${dataContext}
 Please provide:
 1. OVERALL CITY SENTIMENT (2-3 sentences): Overall assessment of city health and civic engagement
 2. ISSUES ANALYSIS (2-3 sentences): What the reported problems indicate about city infrastructure and services
-3. IDEAS ANALYSIS (2-3 sentences): What improvement suggestions reveal about community engagement and innovation
-4. EVENTS ANALYSIS (2-3 sentences): What community and government events show about civic participation
+3. IDEAS ANALYSIS (2-3 sentences): What improvement suggestions reveal about Community engagement and innovation
+4. EVENTS ANALYSIS (2-3 sentences): What Community and government events show about civic participation
 5. KEY INSIGHTS (3-5 bullet points): Most important takeaways and recommendations
 
 Format your response as a JSON object with keys: overall, issues, ideas, events, keyInsights (array)`
@@ -299,15 +299,15 @@ Format your response as a JSON object with keys: overall, issues, ideas, events,
 
     // Fallback: Parse text-based response
     return {
-      overall: `The city has ${reports.length} total civic reports showing active community engagement. ${issueReports.length} issues and ${ideaReports.length} ideas indicate strong citizen participation in civic improvement.`,
-      issues: `${issueReports.length} reported issues focus primarily on ${Object.keys(categoryCount)[0] || 'various'} concerns. Top issues have received significant community votes, indicating priority areas for attention.`,
-      ideas: `${ideaReports.length} community ideas demonstrate active citizen engagement in proposing solutions and improvements. This reflects a community invested in positive change.`,
-      events: `${civilianEventReports.length + governmentEventReports.length} total events show healthy civic participation, with a ${civilianEventReports.length > governmentEventReports.length ? 'strong grassroots' : 'balanced'} community presence.`,
+      overall: `The city has ${reports.length} total civic reports showing active Community engagement. ${issueReports.length} issues and ${ideaReports.length} ideas indicate strong citizen participation in civic improvement.`,
+      issues: `${issueReports.length} reported issues focus primarily on ${Object.keys(categoryCount)[0] || 'various'} concerns. Top issues have received significant Community votes, indicating priority areas for attention.`,
+      ideas: `${ideaReports.length} Community ideas demonstrate active citizen engagement in proposing solutions and improvements. This reflects a Community invested in positive change.`,
+      events: `${CommunityEventReports.length + governmentEventReports.length} total events show healthy civic participation, with a ${CommunityEventReports.length > governmentEventReports.length ? 'strong grassroots' : 'balanced'} Community presence.`,
       keyInsights: [
         `${issueReports.length} issues require attention, with ${Object.keys(categoryCount)[0] || 'infrastructure'} being most reported`,
         `Community engagement is ${ideaReports.length > issueReports.length / 2 ? 'high' : 'moderate'} with ${ideaReports.length} improvement ideas submitted`,
-        `${civilianEventReports.length} civilian-led events show strong grassroots organization`,
-        `Average engagement of ${(issueReports.reduce((sum, r) => sum + (r.votes || 0), 0) / issueReports.length).toFixed(1)} votes per issue indicates active community participation`
+        `${CommunityEventReports.length} Community-led events show strong grassroots organization`,
+        `Average engagement of ${(issueReports.reduce((sum, r) => sum + (r.votes || 0), 0) / issueReports.length).toFixed(1)} votes per issue indicates active Community participation`
       ]
     };
 
@@ -317,18 +317,18 @@ Format your response as a JSON object with keys: overall, issues, ideas, events,
     // Return fallback analysis
     const issueCount = reports.filter(r => r.type === 'issue').length;
     const ideaCount = reports.filter(r => r.type === 'idea').length;
-    const eventCount = reports.filter(r => r.type === 'civilian-event' || r.type === 'government-event').length;
+    const eventCount = reports.filter(r => r.type === 'Community-event' || r.type === 'government-event').length;
 
     return {
-      overall: `The city has ${reports.length} total civic reports indicating active community engagement across issues, ideas, and events.`,
+      overall: `The city has ${reports.length} total civic reports indicating active Community engagement across issues, ideas, and events.`,
       issues: `${issueCount} issues have been reported, indicating areas requiring civic attention and infrastructure improvements.`,
-      ideas: `${ideaCount} community ideas have been submitted, showing citizens are actively engaged in proposing solutions and improvements.`,
-      events: `${eventCount} events demonstrate civic participation and community organizing efforts throughout the city.`,
+      ideas: `${ideaCount} Community ideas have been submitted, showing citizens are actively engaged in proposing solutions and improvements.`,
+      events: `${eventCount} events demonstrate civic participation and Community organizing efforts throughout the city.`,
       keyInsights: [
         `${issueCount} total issues reported`,
-        `${ideaCount} improvement ideas submitted by community`,
+        `${ideaCount} improvement ideas submitted by Community`,
         `${eventCount} civic events organized`,
-        `Active community participation evident across all report types`
+        `Active Community participation evident across all report types`
       ]
     };
   }
@@ -356,7 +356,7 @@ export async function GET(request: NextRequest) {
           totalReports: 0,
           totalIssues: 0,
           totalIdeas: 0,
-          totalCivilianEvents: 0,
+          totalCommunityEvents: 0,
           totalGovernmentEvents: 0
         }
       });
@@ -385,7 +385,7 @@ export async function GET(request: NextRequest) {
       totalReports: allReports.length,
       totalIssues: allReports.filter(r => r.type === 'issue').length,
       totalIdeas: allReports.filter(r => r.type === 'idea').length,
-      totalCivilianEvents: allReports.filter(r => r.type === 'civilian-event').length,
+      totalCommunityEvents: allReports.filter(r => r.type === 'Community-event').length,
       totalGovernmentEvents: allReports.filter(r => r.type === 'government-event').length
     };
 

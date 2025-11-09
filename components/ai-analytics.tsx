@@ -21,7 +21,7 @@ interface HeatmapPoint {
   breakdown: {
     issues: number;
     ideas: number;
-    civilianEvents: number;
+    CommunityEvents: number;
     governmentEvents: number;
   };
 }
@@ -33,7 +33,7 @@ interface AnalyticsData {
     totalReports: number;
     totalIssues: number;
     totalIdeas: number;
-    totalCivilianEvents: number;
+    totalCommunityEvents: number;
     totalGovernmentEvents: number;
   };
 }
@@ -168,7 +168,7 @@ export function AIAnalytics() {
                     Events
                   </Badge>
                   <span className="text-xs text-muted-foreground">
-                    ({analytics.summary.totalCivilianEvents + analytics.summary.totalGovernmentEvents})
+                    ({analytics.summary.totalCommunityEvents + analytics.summary.totalGovernmentEvents})
                   </span>
                 </div>
                 <p className="text-xs leading-relaxed text-foreground/90">
@@ -240,9 +240,9 @@ export function AIAnalytics() {
                         {hotspot.breakdown.ideas} Ideas
                       </Badge>
                     )}
-                    {hotspot.breakdown.civilianEvents > 0 && (
+                    {hotspot.breakdown.CommunityEvents > 0 && (
                       <Badge variant="secondary" className="text-xs bg-green-100 text-green-800">
-                        {hotspot.breakdown.civilianEvents} Civilian Events
+                        {hotspot.breakdown.CommunityEvents} Community Events
                       </Badge>
                     )}
                     {hotspot.breakdown.governmentEvents > 0 && (
@@ -302,10 +302,10 @@ export function AIAnalytics() {
             </div>
             <div className="text-center p-4 rounded-lg bg-muted">
               <div className="text-3xl font-bold text-green-600">
-                {analytics.summary.totalCivilianEvents}
+                {analytics.summary.totalCommunityEvents}
               </div>
               <div className="text-xs text-muted-foreground mt-1">
-                Civilian Events
+                Community Events
               </div>
             </div>
             <div className="text-center p-4 rounded-lg bg-muted">

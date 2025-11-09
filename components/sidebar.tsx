@@ -49,12 +49,7 @@ const analyticsMenu = [
     current: false,
     description: "Detailed insights"
   },
-  { 
-    name: "Reports Trends", 
-    icon: TrendingUp, 
-    current: false,
-    description: "Track patterns"
-  },
+
   { 
     name: "User Engagement", 
     icon: MessageSquare, 

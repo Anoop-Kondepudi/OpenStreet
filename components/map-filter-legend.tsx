@@ -28,8 +28,8 @@ export const CATEGORY_CONFIGS: CategoryConfig[] = [
     emoji: "💡",
   },
   {
-    type: "civilian-event",
-    label: "Civilian Events",
+    type: "Community-event",
+    label: "Community Events",
     color: "#10b981", // Green
     emoji: "👥",
   },

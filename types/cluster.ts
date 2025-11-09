@@ -1,7 +1,7 @@
 import { BBox, GeoJsonProperties } from "geojson";
 
 // Report types
-export type ReportType = "issue" | "idea" | "civilian-event" | "government-event";
+export type ReportType = "issue" | "idea" | "Community-event" | "government-event";
 
 export type Report = {
   id: string;
@@ -29,7 +29,7 @@ export type ReportWithType = Report & {
 export type CategoryCounts = {
   issue: number;
   idea: number;
-  "civilian-event": number;
+  "Community-event": number;
   "government-event": number;
 };
 
