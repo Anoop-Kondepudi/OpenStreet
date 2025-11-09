@@ -245,7 +245,9 @@
         "lng": -96.4534
       },
       "timestamp": "2025-11-09T13:00:00Z",
-      "status": "open"
+      "status": "open",
+      "votes": 1,
+      "downvotes": 1
     },
     {
       "id": "civ-event-019",
