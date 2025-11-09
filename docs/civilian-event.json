@@ -1,0 +1,654 @@
+{
+  "reports": [
+    {
+      "id": "civ-event-001",
+      "description": "Community BBQ at White Rock Lake Park! Join us this Saturday from 3-7 PM for grilled favorites, music, and neighborhood fun.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "9600 White Rock Lake Drive, Dallas, TX 75218",
+        "lat": 32.8401,
+        "lng": -96.5789
+      },
+      "timestamp": "2025-11-01T15:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-002",
+      "description": "Birthday bash for 8-year-old Emma! Games, cake, and laughter at 4509 Abrams Road this Sunday at 2 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4509 Abrams Road, Dallas, TX 75214",
+        "lat": 32.8267,
+        "lng": -96.5421
+      },
+      "timestamp": "2025-11-02T14:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-003",
+      "description": "Neighborhood watch meeting at Lakewood Community Center, 2912 Abrams Road. Tuesday night 7 PM, discussing safety initiatives.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2912 Abrams Road, Dallas, TX 75214",
+        "lat": 32.8156,
+        "lng": -96.5456
+      },
+      "timestamp": "2025-11-04T19:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-004",
+      "description": "Massive garage sale on Mockingbird Lane! Furniture, books, toys, and vintage finds. Saturday 8 AM - 3 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3456 Mockingbird Lane, Dallas, TX 75205",
+        "lat": 32.8289,
+        "lng": -96.5678
+      },
+      "timestamp": "2025-11-03T08:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-005",
+      "description": "Block party extravaganza on Forest Lane! Food trucks, games, and live music from 5-10 PM. Bring the whole family!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6700 Forest Lane, Dallas, TX 75230",
+        "lat": 32.8512,
+        "lng": -96.5834
+      },
+      "timestamp": "2025-11-05T17:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-006",
+      "description": "Book club discussion of 'Where the Crawdads Sing' at Oak Lawn Library, Wednesday 6:30 PM. Coffee and cookies provided!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4100 Maple Avenue, Dallas, TX 75219",
+        "lat": 32.8278,
+        "lng": -96.5912
+      },
+      "timestamp": "2025-11-05T18:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-007",
+      "description": "Community potluck dinner at Fair Park Pavilion on Sunday. Bring a dish to share and meet your neighbors!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1300 Robert B. Cullum Boulevard, Dallas, TX 75210",
+        "lat": 32.7756,
+        "lng": -96.6187
+      },
+      "timestamp": "2025-11-06T17:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-008",
+      "description": "Youth soccer tournament at Reverchon Park! Games all day Saturday. Support our local kids!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3505 Maple Avenue, Dallas, TX 75219",
+        "lat": 32.8245,
+        "lng": -96.6001
+      },
+      "timestamp": "2025-11-08T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-009",
+      "description": "Yard sale fundraiser for local food bank at 5678 SMU Boulevard, Saturday 9 AM-2 PM. All proceeds go to those in need.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5678 SMU Boulevard, Dallas, TX 75206",
+        "lat": 32.8334,
+        "lng": -96.6234
+      },
+      "timestamp": "2025-11-08T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-010",
+      "description": "Birthday celebration for Marcus turning 12! Bowling party at Celebration Station on November 9th at 1 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2500 Valley View Lane, Dallas, TX 75234",
+        "lat": 32.8678,
+        "lng": -96.6456
+      },
+      "timestamp": "2025-11-09T13:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-011",
+      "description": "Neighborhood cleanup day at White Rock Park! Meet at parking lot 4 Sunday 9 AM. Tools and refreshments provided.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "9600 White Rock Lake Drive, Dallas, TX 75218",
+        "lat": 32.8401,
+        "lng": -96.5789
+      },
+      "timestamp": "2025-11-09T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-012",
+      "description": "Monthly book swap at Lake Highlands Library! Bring books you've read, take home new ones. Friday evening 6-8 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6817 Abrams Road, Dallas, TX 75231",
+        "lat": 32.8834,
+        "lng": -96.5512
+      },
+      "timestamp": "2025-11-07T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-013",
+      "description": "Community BBQ fundraiser for school programs at Lakewood High School grounds, Saturday 11 AM-5 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2913 Abrams Road, Dallas, TX 75214",
+        "lat": 32.8156,
+        "lng": -96.5456
+      },
+      "timestamp": "2025-11-08T11:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-014",
+      "description": "18th birthday party for Jennifer! Join us at 7890 Greenville Avenue for dancing and celebration Saturday night 8 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "7890 Greenville Avenue, Dallas, TX 75231",
+        "lat": 32.8423,
+        "lng": -96.5634
+      },
+      "timestamp": "2025-11-08T20:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-015",
+      "description": "Garage sale extravaganza! Antiques, toys, household items at 4321 Lovers Lane Sunday 8 AM-3 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4321 Lovers Lane, Dallas, TX 75225",
+        "lat": 32.8501,
+        "lng": -96.6078
+      },
+      "timestamp": "2025-11-09T08:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-016",
+      "description": "Neighborhood watch potluck and safety forum at 5500 Walnut Hill Lane Tuesday 6 PM. Community policing topics.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5500 Walnut Hill Lane, Dallas, TX 75231",
+        "lat": 32.8567,
+        "lng": -96.6123
+      },
+      "timestamp": "2025-11-04T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-017",
+      "description": "Block party on Elm Street with food, live DJ, and neighborhood games. Saturday 4-10 PM. Everyone welcome!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2300 Elm Street, Dallas, TX 75226",
+        "lat": 32.7845,
+        "lng": -96.6289
+      },
+      "timestamp": "2025-11-08T16:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-018",
+      "description": "Birthday party for twins Alex and Jordan, turning 7! Pizza, cake, and games at 8765 Inwood Road, Sunday 1 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "8765 Inwood Road, Dallas, TX 75209",
+        "lat": 32.8289,
+        "lng": -96.6512
+      },
+      "timestamp": "2025-11-09T13:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-019",
+      "description": "Book club meeting at Richardson community center, discussing 'The Midnight Library'. Thursday 7 PM. All readers welcome!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "1500 Spring Valley Road, Dallas, TX 75240",
+        "lat": 32.8923,
+        "lng": -96.6234
+      },
+      "timestamp": "2025-11-06T19:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-020",
+      "description": "Massive yard sale at Prestonwood Park community pavilion! Saturday 8 AM-4 PM. Furniture, clothes, electronics.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "16001 Prestonwood Boulevard, Dallas, TX 75248",
+        "lat": 32.8734,
+        "lng": -96.7234
+      },
+      "timestamp": "2025-11-08T08:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-021",
+      "description": "Community potluck in Love Field neighborhood, Sunday at Fair Park green space 5 PM. Bring a side dish!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2300 Stemmons Freeway, Dallas, TX 75207",
+        "lat": 32.7678,
+        "lng": -96.6845
+      },
+      "timestamp": "2025-11-09T17:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-022",
+      "description": "Community BBQ at Cedar Springs Park with hamburgers, hotdogs, and salads. Saturday 12-6 PM. Family friendly!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4000 Cedar Springs Road, Dallas, TX 75219",
+        "lat": 32.8156,
+        "lng": -96.5912
+      },
+      "timestamp": "2025-11-08T12:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-023",
+      "description": "Birthday bash for Sofia's sweet 16! Party at 3200 Knight Avenue Friday 7 PM with friends and celebration.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3200 Knight Avenue, Dallas, TX 75219",
+        "lat": 32.8267,
+        "lng": -96.6001
+      },
+      "timestamp": "2025-11-07T19:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-024",
+      "description": "Neighborhood watch monthly meeting at Northwest Dallas community center. Tuesday 6:30 PM discussing property safety.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6801 Garrett Lane, Dallas, TX 75214",
+        "lat": 32.8423,
+        "lng": -96.5678
+      },
+      "timestamp": "2025-11-04T18:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-025",
+      "description": "Block party on Belmont Avenue with food trucks, live music, and lawn games! Sunday 3-9 PM. Join the fun!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4500 Belmont Avenue, Dallas, TX 75205",
+        "lat": 32.8334,
+        "lng": -96.5823
+      },
+      "timestamp": "2025-11-09T15:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-026",
+      "description": "Garage sale at 5000 Drexel Drive! Vintage furniture, books, seasonal decorations Saturday 9 AM-2 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5000 Drexel Drive, Dallas, TX 75225",
+        "lat": 32.8401,
+        "lng": -96.5934
+      },
+      "timestamp": "2025-11-08T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-027",
+      "description": "Youth baseball championship at Lakeside Park Saturday all day. Come cheer on our local teams!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "8600 Lake June Road, Dallas, TX 75217",
+        "lat": 32.7923,
+        "lng": -96.5634
+      },
+      "timestamp": "2025-11-08T08:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-028",
+      "description": "Birthday party for Grandma turning 70! Celebration at 7200 Abrams Road Sunday 2 PM. Family and friends invited!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "7200 Abrams Road, Dallas, TX 75231",
+        "lat": 32.8512,
+        "lng": -96.5523
+      },
+      "timestamp": "2025-11-09T14:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-029",
+      "description": "Book club discussion of contemporary fiction at Lakewood Library Thursday 7 PM. Refreshments served!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6817 Abrams Road, Dallas, TX 75231",
+        "lat": 32.8834,
+        "lng": -96.5512
+      },
+      "timestamp": "2025-11-06T19:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-030",
+      "description": "Community potluck at Kessler Park pavilion Sunday 5 PM. Bring a dish and meet neighbors!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2700 Swiss Avenue, Dallas, TX 75204",
+        "lat": 32.7834,
+        "lng": -96.6267
+      },
+      "timestamp": "2025-11-09T17:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-031",
+      "description": "Garage sale bonanza at 6500 Greenville Avenue! Multiple families participating Saturday 8 AM-1 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6500 Greenville Avenue, Dallas, TX 75230",
+        "lat": 32.8456,
+        "lng": -96.5689
+      },
+      "timestamp": "2025-11-08T08:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-032",
+      "description": "Community BBQ at Spring Park pavilion Saturday 1-7 PM. Pulled pork, brisket, and sides!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4000 Abrams Road, Dallas, TX 75210",
+        "lat": 32.8145,
+        "lng": -96.5612
+      },
+      "timestamp": "2025-11-08T13:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-033",
+      "description": "Birthday party for 30-year-old Chris! Dinner and drinks at 3000 Maple Avenue Friday 7 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3000 Maple Avenue, Dallas, TX 75219",
+        "lat": 32.8223,
+        "lng": -96.5967
+      },
+      "timestamp": "2025-11-07T19:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-034",
+      "description": "Block party extravaganza on Highland Avenue with karaoke, food, and dancing! Friday 6-11 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5500 Highland Avenue, Dallas, TX 75205",
+        "lat": 32.8378,
+        "lng": -96.6145
+      },
+      "timestamp": "2025-11-07T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-035",
+      "description": "Monthly neighborhood watch meeting at Eagle Pass community center Tuesday 7 PM. Safety presentations included.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3030 Eagle Pass Drive, Dallas, TX 75212",
+        "lat": 32.7923,
+        "lng": -96.6523
+      },
+      "timestamp": "2025-11-04T19:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-036",
+      "description": "Yard sale at 8000 Inwood Road! Household items, sports equipment, kids toys Saturday 8 AM-3 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "8000 Inwood Road, Dallas, TX 75209",
+        "lat": 32.8267,
+        "lng": -96.6478
+      },
+      "timestamp": "2025-11-08T08:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-037",
+      "description": "Birthday celebration for 5-year-old Lily! Party at Discovery Zone playground Saturday 10 AM-12 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2500 Oak Lawn Avenue, Dallas, TX 75219",
+        "lat": 32.8289,
+        "lng": -96.6023
+      },
+      "timestamp": "2025-11-08T10:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-038",
+      "description": "Community potluck and outdoor movie night at Pemberton Hill park Sunday 6 PM. Bring a blanket!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "7600 Pemberton Hill Drive, Dallas, TX 75225",
+        "lat": 32.8534,
+        "lng": -96.6089
+      },
+      "timestamp": "2025-11-09T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-039",
+      "description": "Book club meeting discussing 'Lessons in Chemistry' at Forest Lane Library Wednesday 6:30 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "7001 Forest Lane, Dallas, TX 75230",
+        "lat": 32.8501,
+        "lng": -96.5834
+      },
+      "timestamp": "2025-11-05T18:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-040",
+      "description": "Community BBQ fundraiser for youth programs at Bachman Lake Park Saturday 11 AM-6 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3000 Bachman Drive, Dallas, TX 75220",
+        "lat": 32.8123,
+        "lng": -96.6834
+      },
+      "timestamp": "2025-11-08T11:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-041",
+      "description": "Block party on North Park Drive with street performers, food vendors, and community games Saturday 4-9 PM!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3835 North Park Drive, Dallas, TX 75204",
+        "lat": 32.7945,
+        "lng": -96.6178
+      },
+      "timestamp": "2025-11-08T16:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-042",
+      "description": "Garage sale at multiple homes on Beacon Hill drive! Saturday 9 AM-2 PM. Everything must go!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5600 Beacon Hill Drive, Dallas, TX 75230",
+        "lat": 32.8612,
+        "lng": -96.5945
+      },
+      "timestamp": "2025-11-08T09:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-043",
+      "description": "Birthday party for James turning 35! Backyard party at 6800 Lover's Lane Friday 6 PM with BBQ.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "6800 Lovers Lane, Dallas, TX 75225",
+        "lat": 32.8534,
+        "lng": -96.6112
+      },
+      "timestamp": "2025-11-07T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-044",
+      "description": "Neighborhood watch safety workshop at Valley View Community Center Tuesday 6 PM. Speaker on home security.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2500 Valley View Lane, Dallas, TX 75234",
+        "lat": 32.8678,
+        "lng": -96.6456
+      },
+      "timestamp": "2025-11-04T18:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-045",
+      "description": "Community potluck and picnic at Tenison Park Sunday 4 PM. Families welcome! Games and activities for kids.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "3500 Abrams Road, Dallas, TX 75212",
+        "lat": 32.7834,
+        "lng": -96.5512
+      },
+      "timestamp": "2025-11-09T16:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-046",
+      "description": "Birthday celebration for twins turning 25! Party at 4400 Maple Avenue Sunday 7 PM. Everyone invited!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4400 Maple Avenue, Dallas, TX 75219",
+        "lat": 32.8312,
+        "lng": -96.5956
+      },
+      "timestamp": "2025-11-09T19:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-047",
+      "description": "Garage sale and community cleanup day at 7500 Greenville Avenue Saturday 8 AM-12 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "7500 Greenville Avenue, Dallas, TX 75231",
+        "lat": 32.8478,
+        "lng": -96.5678
+      },
+      "timestamp": "2025-11-08T08:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-048",
+      "description": "Book swap and social hour at Highland Park community library Thursday 6:30 PM. Bring books to exchange!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "4100 University Boulevard, Dallas, TX 75205",
+        "lat": 32.8345,
+        "lng": -96.6089
+      },
+      "timestamp": "2025-11-06T18:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-049",
+      "description": "Community BBQ and neighborhood games at Swiss Avenue Park Saturday 2-8 PM. Burgers and hot dogs!",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "2700 Swiss Avenue, Dallas, TX 75204",
+        "lat": 32.7834,
+        "lng": -96.6267
+      },
+      "timestamp": "2025-11-08T14:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "civ-event-050",
+      "description": "Birthday party for Marcus turning 40! Celebration dinner at 5200 Maple Avenue Friday 7:30 PM.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "5200 Maple Avenue, Dallas, TX 75219",
+        "lat": 32.8256,
+        "lng": -96.5901
+      },
+      "timestamp": "2025-11-07T19:30:00Z",
+      "status": "open"
+    }
+  ]
+}

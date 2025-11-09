@@ -15,15 +15,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (type !== 'crime' && type !== 'construction') {
+    const validTypes = ['issue', 'idea', 'civilian-event', 'government-event'];
+    if (!validTypes.includes(type)) {
       return NextResponse.json(
-        { error: 'Invalid report type. Must be "crime" or "construction"' },
+        { error: 'Invalid report type. Must be "issue", "idea", "civilian-event", or "government-event"' },
         { status: 400 }
       );
     }
 
     // Determine which JSON file to update
-    const fileName = type === 'crime' ? 'crime.json' : 'construction.json';
+    const fileName = `${type}.json`;
     const filePath = path.join(process.cwd(), 'docs', fileName);
 
     // Read existing data
@@ -31,7 +32,13 @@ export async function POST(request: NextRequest) {
     const data = JSON.parse(fileContent);
 
     // Generate new ID
-    const prefix = type === 'crime' ? 'crime' : 'const';
+    const prefixMap: Record<string, string> = {
+      'issue': 'issue',
+      'idea': 'idea',
+      'civilian-event': 'civ-event',
+      'government-event': 'gov-event'
+    };
+    const prefix = prefixMap[type];
     const existingIds = data.reports.map((r: any) => {
       const match = r.id.match(new RegExp(`${prefix}-(\\d+)`));
       return match ? parseInt(match[1]) : 0;

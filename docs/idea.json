@@ -1,0 +1,654 @@
+{
+  "reports": [
+    {
+      "id": "idea-001",
+      "description": "Install protected bike lane on McKinney Avenue to improve cycling safety between Uptown and downtown.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "McKinney Avenue, Uptown",
+        "lat": 32.7919,
+        "lng": -96.8051
+      },
+      "timestamp": "2025-11-01T08:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-002",
+      "description": "Add roundabout at the intersection of Maple Avenue and Cedar Springs Road to reduce traffic congestion and improve safety.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Maple Avenue & Cedar Springs Road, Uptown",
+        "lat": 32.7885,
+        "lng": -96.8095
+      },
+      "timestamp": "2025-11-01T14:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-003",
+      "description": "Develop dog park at Fair Park with shade structures and water stations for local pet owners.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Fair Park, 1300 Robert B. Cullum Boulevard",
+        "lat": 32.7765,
+        "lng": -96.7650
+      },
+      "timestamp": "2025-11-01T16:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-004",
+      "description": "Create pedestrian zone on Main Street in downtown with wider sidewalks and public seating areas.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Main Street Downtown, Dallas",
+        "lat": 32.7774,
+        "lng": -96.7988
+      },
+      "timestamp": "2025-11-02T10:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-005",
+      "description": "Install improved lighting at Klyde Warren Park to enhance nighttime safety and usability.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Klyde Warren Park, 2012 Woodall Rodgers Freeway",
+        "lat": 32.7858,
+        "lng": -96.8015
+      },
+      "timestamp": "2025-11-02T13:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-006",
+      "description": "Add basketball court and tennis courts to Reverchon Park for increased recreational opportunities.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Reverchon Park, 3500 Maple Avenue",
+        "lat": 32.7912,
+        "lng": -96.8145
+      },
+      "timestamp": "2025-11-02T15:50:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-007",
+      "description": "Install bus rapid transit lane on Central Expressway to improve public transportation efficiency.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Central Expressway, North Dallas",
+        "lat": 32.8245,
+        "lng": -96.7755
+      },
+      "timestamp": "2025-11-03T09:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-008",
+      "description": "Upgrade playground equipment at White Rock Lake Park with modern ADA-accessible features.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "White Rock Lake Park, 8300 East Lawther Drive",
+        "lat": 32.8445,
+        "lng": -96.6945
+      },
+      "timestamp": "2025-11-03T11:40:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-009",
+      "description": "Create bike sharing stations along the Trinity River Trail to promote eco-friendly commuting.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Trinity River Trail, South Dallas",
+        "lat": 32.7650,
+        "lng": -96.8200
+      },
+      "timestamp": "2025-11-03T14:05:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-010",
+      "description": "Replace traffic signals at Lemmon Avenue and Highland Avenue with adaptive signal control to reduce wait times.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Lemmon Avenue & Highland Avenue, Uptown",
+        "lat": 32.7945,
+        "lng": -96.8255
+      },
+      "timestamp": "2025-11-03T17:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-011",
+      "description": "Install green roof and rain gardens at City Hall plaza to improve urban stormwater management.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "City Hall, 1500 Marilla Street",
+        "lat": 32.7789,
+        "lng": -96.7985
+      },
+      "timestamp": "2025-11-04T08:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-012",
+      "description": "Add benches, lighting, and landscaping to bus stops along Gaston Avenue for improved waiting areas.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Gaston Avenue, East Dallas",
+        "lat": 32.8055,
+        "lng": -96.7350
+      },
+      "timestamp": "2025-11-04T10:10:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-013",
+      "description": "Develop community garden in Oak Cliff neighborhood to support local food security and green space.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Bishop Avenue, Oak Cliff",
+        "lat": 32.7545,
+        "lng": -96.8355
+      },
+      "timestamp": "2025-11-04T12:35:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-014",
+      "description": "Create dedicated pedestrian pathway across Love Field Drive to improve access to White Rock Lake.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Love Field Drive, Near White Rock Lake",
+        "lat": 32.8425,
+        "lng": -96.7845
+      },
+      "timestamp": "2025-11-04T15:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-015",
+      "description": "Install parking-protected bike lane on Turtle Creek Boulevard to encourage cycling infrastructure.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Turtle Creek Boulevard, North Dallas",
+        "lat": 32.8155,
+        "lng": -96.7985
+      },
+      "timestamp": "2025-11-04T17:25:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-016",
+      "description": "Establish community center with fitness facilities and youth programs in Deep Ellum neighborhood.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Elm Street, Deep Ellum",
+        "lat": 32.7825,
+        "lng": -96.7615
+      },
+      "timestamp": "2025-11-05T09:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-017",
+      "description": "Upgrade park lighting at Breckenridge Park for evening safety and extended recreational hours.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Breckenridge Park, 2400 Swiss Avenue",
+        "lat": 32.8005,
+        "lng": -96.7185
+      },
+      "timestamp": "2025-11-05T11:55:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-018",
+      "description": "Create traffic calming measures and bike lanes on Exposition Avenue in Fair Park area.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Exposition Avenue, Fair Park",
+        "lat": 32.7715,
+        "lng": -96.7515
+      },
+      "timestamp": "2025-11-05T14:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-019",
+      "description": "Install public art installations and street furniture along Design District on Dragon Street.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Dragon Street, Design District",
+        "lat": 32.8025,
+        "lng": -96.8185
+      },
+      "timestamp": "2025-11-05T16:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-020",
+      "description": "Expand hiking and nature trails at Bachman Lake Park with educational signage and benches.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Bachman Lake Park, 2400 Bachman Drive",
+        "lat": 32.8335,
+        "lng": -96.8545
+      },
+      "timestamp": "2025-11-06T08:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-021",
+      "description": "Add crosswalk improvements with high-visibility markings at major intersections on Valley View Lane.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Valley View Lane, North Dallas",
+        "lat": 32.8405,
+        "lng": -96.8265
+      },
+      "timestamp": "2025-11-06T10:40:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-022",
+      "description": "Establish dog-friendly public transit policy with designated seating areas on DART buses.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "DART Transit Center, Downtown",
+        "lat": 32.7785,
+        "lng": -96.7945
+      },
+      "timestamp": "2025-11-06T13:05:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-023",
+      "description": "Install drinking fountains and water refill stations at parks along the Katy Trail.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Katy Trail, Uptown",
+        "lat": 32.7892,
+        "lng": -96.8045
+      },
+      "timestamp": "2025-11-06T15:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-024",
+      "description": "Create accessible playground with sensory equipment at Samuell Grand Park for children with disabilities.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Samuell Grand Park, 6300 East Grand Avenue",
+        "lat": 32.8185,
+        "lng": -96.7065
+      },
+      "timestamp": "2025-11-07T09:50:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-025",
+      "description": "Reduce speed limits and implement road diet on residential streets in Lakewood neighborhood.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Lakewood Boulevard, East Dallas",
+        "lat": 32.7895,
+        "lng": -96.6985
+      },
+      "timestamp": "2025-11-07T12:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-026",
+      "description": "Build outdoor amphitheater at Dallas Commons for community events and performances.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Dallas Commons, 900 South Harwood Street",
+        "lat": 32.7705,
+        "lng": -96.8025
+      },
+      "timestamp": "2025-11-07T14:40:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-027",
+      "description": "Install EV charging stations at public parking lots and municipal buildings across Dallas.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Multiple Locations, Dallas",
+        "lat": 32.7965,
+        "lng": -96.7975
+      },
+      "timestamp": "2025-11-07T17:05:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-028",
+      "description": "Create micro-mobility hubs with scooter and bike storage near DART transit stations.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Cedars Station, South Dallas",
+        "lat": 32.7615,
+        "lng": -96.7825
+      },
+      "timestamp": "2025-11-08T08:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-029",
+      "description": "Upgrade tennis courts and add pickleball courts at Griggs Park for diverse recreational activities.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Griggs Park, 4500 Abrams Road",
+        "lat": 32.8055,
+        "lng": -96.6655
+      },
+      "timestamp": "2025-11-08T10:55:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-030",
+      "description": "Install smart traffic management system at Central & Pacific intersection to optimize flow.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Central Expressway & Pacific Avenue",
+        "lat": 32.8135,
+        "lng": -96.7755
+      },
+      "timestamp": "2025-11-08T13:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-031",
+      "description": "Add shade structures and seating to bus stops along R.L. Thornton Freeway service road.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "R.L. Thornton Freeway, South Dallas",
+        "lat": 32.7485,
+        "lng": -96.8015
+      },
+      "timestamp": "2025-11-08T15:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-032",
+      "description": "Develop neighborhood plaza with community gardens and gathering spaces on East Jefferson Avenue.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "East Jefferson Avenue, South Dallas",
+        "lat": 32.7725,
+        "lng": -96.7465
+      },
+      "timestamp": "2025-11-09T09:10:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-033",
+      "description": "Install bike racks and repair stations at retail centers to encourage cycling for errands.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "NorthPark Center, 8687 North Central Expressway",
+        "lat": 32.8385,
+        "lng": -96.7645
+      },
+      "timestamp": "2025-11-09T11:35:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-034",
+      "description": "Create protected lane for buses on Ross Avenue to improve public transit reliability.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Ross Avenue, Downtown",
+        "lat": 32.7810,
+        "lng": -96.7925
+      },
+      "timestamp": "2025-11-09T14:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-035",
+      "description": "Upgrade lighting at Burnt Tree Park with energy-efficient LED fixtures for safety.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Burnt Tree Park, 10603 Inwood Road",
+        "lat": 32.8525,
+        "lng": -96.8635
+      },
+      "timestamp": "2025-11-09T16:25:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-036",
+      "description": "Install ground-level pedestrian lighting on side streets to improve walkability and safety.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Various Side Streets, Uptown",
+        "lat": 32.7925,
+        "lng": -96.8135
+      },
+      "timestamp": "2025-11-10T08:50:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-037",
+      "description": "Create skateboard park with progressive terrain at Tenison Park for youth engagement.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Tenison Park, 3500 Abrams Road",
+        "lat": 32.8015,
+        "lng": -96.6635
+      },
+      "timestamp": "2025-11-10T11:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-038",
+      "description": "Add permeable paving in parking lots and sidewalks to reduce urban heat and flooding.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Multiple Locations, Dallas",
+        "lat": 32.7865,
+        "lng": -96.8075
+      },
+      "timestamp": "2025-11-10T13:40:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-039",
+      "description": "Install wayfinding signage and improve connectivity between Uptown parks and neighborhoods.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Uptown District, Dallas",
+        "lat": 32.7945,
+        "lng": -96.8085
+      },
+      "timestamp": "2025-11-10T16:05:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-040",
+      "description": "Expand aquatic facility at Scyene Park with splash pad and lap swimming lanes.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Scyene Park, 2440 Scyene Road",
+        "lat": 32.7555,
+        "lng": -96.6745
+      },
+      "timestamp": "2025-11-11T09:30:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-041",
+      "description": "Implement pop-up retail program to activate vacant storefronts on Commerce Street.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Commerce Street, Downtown",
+        "lat": 32.7735,
+        "lng": -96.8055
+      },
+      "timestamp": "2025-11-11T11:55:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-042",
+      "description": "Install traffic calming roundabout at Abrams Road and Live Oak Street in East Dallas.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Abrams Road & Live Oak Street, East Dallas",
+        "lat": 32.8095,
+        "lng": -96.6955
+      },
+      "timestamp": "2025-11-11T14:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-043",
+      "description": "Create mobile library service with stops in underserved neighborhoods to improve access.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Multiple Locations, South Dallas",
+        "lat": 32.7595,
+        "lng": -96.7685
+      },
+      "timestamp": "2025-11-11T16:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-044",
+      "description": "Add outdoor fitness equipment and walking path at Fair Oaks Park for public health.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Fair Oaks Park, 4000 University Boulevard",
+        "lat": 32.8155,
+        "lng": -96.7445
+      },
+      "timestamp": "2025-11-12T09:10:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-045",
+      "description": "Install protective bollards and improve sidewalk conditions on pedestrian-focused streets.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Oak Lawn Avenue, Uptown",
+        "lat": 32.7805,
+        "lng": -96.8145
+      },
+      "timestamp": "2025-11-12T11:35:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-046",
+      "description": "Establish free WiFi hotspots in parks and public spaces to bridge digital divide.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Public Parks, Dallas",
+        "lat": 32.7875,
+        "lng": -96.7865
+      },
+      "timestamp": "2025-11-12T14:00:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-047",
+      "description": "Create dog-friendly trail system with water bowls and waste stations at White Rock Lake.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "White Rock Lake Park Trail, East Dallas",
+        "lat": 32.8365,
+        "lng": -96.7165
+      },
+      "timestamp": "2025-11-12T16:25:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-048",
+      "description": "Install public bathroom facilities with maintenance at popular parks and transit hubs.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Various Parks, Dallas",
+        "lat": 32.7945,
+        "lng": -96.8015
+      },
+      "timestamp": "2025-11-13T09:50:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-049",
+      "description": "Create community orchard and edible landscape at Grapevine Park to promote food sustainability.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Grapevine Park, 3300 North Lawther Drive",
+        "lat": 32.8395,
+        "lng": -96.7485
+      },
+      "timestamp": "2025-11-13T12:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "idea-050",
+      "description": "Improve pedestrian underpass at Woodall Rodgers Freeway with better lighting and art installations.",
+      "location": {
+        "city": "Dallas",
+        "state": "TX",
+        "address": "Woodall Rodgers Freeway Underpass, Downtown",
+        "lat": 32.7825,
+        "lng": -96.8055
+      },
+      "timestamp": "2025-11-13T14:40:00Z",
+      "status": "open"
+    }
+  ]
+}

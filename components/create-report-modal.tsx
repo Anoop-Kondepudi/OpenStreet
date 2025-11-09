@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, ShieldAlert, Construction, MapPin } from "lucide-react";
+import { X, ShieldAlert, Lightbulb, Users, Building2, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -13,7 +13,7 @@ interface CreateReportModalProps {
   onClose: () => void;
   location: { lat: number; lng: number } | null;
   onSubmit: (report: {
-    type: "crime" | "construction";
+    type: "issue" | "idea" | "civilian-event" | "government-event";
     description: string;
     location: {
       address: string;
@@ -26,13 +26,13 @@ interface CreateReportModalProps {
 }
 
 export function CreateReportModal({ isOpen, isClosing = false, onClose, location, onSubmit }: CreateReportModalProps) {
-  const [reportType, setReportType] = useState<"crime" | "construction">("crime");
+  const [reportType, setReportType] = useState<"issue" | "idea" | "civilian-event" | "government-event">("issue");
   const [description, setDescription] = useState("");
 
   // Reset form when modal closes
   useEffect(() => {
     if (!isOpen) {
-      setReportType("crime");
+      setReportType("issue");
       setDescription("");
     }
   }, [isOpen]);
@@ -72,11 +72,37 @@ export function CreateReportModal({ isOpen, isClosing = false, onClose, location
 
   console.log("✅ CreateReportModal rendering!", { isOpen, location });
 
-  const isCrime = reportType === "crime";
-  const accentColor = isCrime ? "text-red-500" : "text-orange-500";
-  const bgColor = isCrime ? "bg-red-500/10" : "bg-orange-500/10";
-  const borderColor = isCrime ? "border-red-500/20" : "border-orange-500/20";
-  const ReportIcon = isCrime ? ShieldAlert : Construction;
+  const categoryConfig = {
+    'issue': {
+      accent: 'text-red-500',
+      bg: 'bg-red-500/10',
+      border: 'border-red-500/20',
+      icon: ShieldAlert
+    },
+    'idea': {
+      accent: 'text-blue-500',
+      bg: 'bg-blue-500/10',
+      border: 'border-blue-500/20',
+      icon: Lightbulb
+    },
+    'civilian-event': {
+      accent: 'text-green-500',
+      bg: 'bg-green-500/10',
+      border: 'border-green-500/20',
+      icon: Users
+    },
+    'government-event': {
+      accent: 'text-purple-500',
+      bg: 'bg-purple-500/10',
+      border: 'border-purple-500/20',
+      icon: Building2
+    }
+  };
+  const config = categoryConfig[reportType];
+  const accentColor = config.accent;
+  const bgColor = config.bg;
+  const borderColor = config.border;
+  const ReportIcon = config.icon;
 
   const canSubmit = description.trim().length > 0;
 
@@ -128,20 +154,34 @@ export function CreateReportModal({ isOpen, isClosing = false, onClose, location
               <Label className="text-sm font-semibold text-foreground/80 mb-3 block">
                 Report Type
               </Label>
-              <RadioGroup value={reportType} onValueChange={(value) => setReportType(value as "crime" | "construction")}>
-                <div className="flex gap-4">
-                  <div className="flex items-center space-x-2 flex-1">
-                    <RadioGroupItem value="crime" id="crime" />
-                    <Label htmlFor="crime" className="cursor-pointer flex items-center gap-2 text-sm">
+              <RadioGroup value={reportType} onValueChange={(value) => setReportType(value as "issue" | "idea" | "civilian-event" | "government-event")}>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="issue" id="issue" />
+                    <Label htmlFor="issue" className="cursor-pointer flex items-center gap-2 text-sm">
                       <ShieldAlert className="h-4 w-4 text-red-500" />
-                      Crime Report
+                      Issue
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2 flex-1">
-                    <RadioGroupItem value="construction" id="construction" />
-                    <Label htmlFor="construction" className="cursor-pointer flex items-center gap-2 text-sm">
-                      <Construction className="h-4 w-4 text-orange-500" />
-                      Construction
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="idea" id="idea" />
+                    <Label htmlFor="idea" className="cursor-pointer flex items-center gap-2 text-sm">
+                      <Lightbulb className="h-4 w-4 text-blue-500" />
+                      Idea
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="civilian-event" id="civilian-event" />
+                    <Label htmlFor="civilian-event" className="cursor-pointer flex items-center gap-2 text-sm">
+                      <Users className="h-4 w-4 text-green-500" />
+                      Civilian Event
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="government-event" id="government-event" />
+                    <Label htmlFor="government-event" className="cursor-pointer flex items-center gap-2 text-sm">
+                      <Building2 className="h-4 w-4 text-purple-500" />
+                      Government Event
                     </Label>
                   </div>
                 </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { X, MapPin, Clock, AlertCircle, Construction, ShieldAlert } from "lucide-react";
+import { X, MapPin, Clock, AlertCircle, ShieldAlert, Lightbulb, Users, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -30,11 +30,42 @@ interface ReportModalProps {
 export function ReportModal({ report, isOpen, isClosing = false, onClose, markerPosition }: ReportModalProps) {
   if (!isOpen || !report) return null;
 
-  const isCrime = report.type === "crime";
-  const accentColor = isCrime ? "text-red-500" : "text-orange-500";
-  const bgColor = isCrime ? "bg-red-500/10" : "bg-orange-500/10";
-  const borderColor = isCrime ? "border-red-500/20" : "border-orange-500/20";
-  const ReportIcon = isCrime ? ShieldAlert : Construction;
+  const categoryConfig = {
+    'issue': {
+      accent: 'text-red-500',
+      bg: 'bg-red-500/10',
+      border: 'border-red-500/20',
+      icon: ShieldAlert,
+      title: 'Issue Report'
+    },
+    'idea': {
+      accent: 'text-blue-500',
+      bg: 'bg-blue-500/10',
+      border: 'border-blue-500/20',
+      icon: Lightbulb,
+      title: 'Idea'
+    },
+    'civilian-event': {
+      accent: 'text-green-500',
+      bg: 'bg-green-500/10',
+      border: 'border-green-500/20',
+      icon: Users,
+      title: 'Civilian Event'
+    },
+    'government-event': {
+      accent: 'text-purple-500',
+      bg: 'bg-purple-500/10',
+      border: 'border-purple-500/20',
+      icon: Building2,
+      title: 'Government Event'
+    }
+  };
+  const config = categoryConfig[report.type as keyof typeof categoryConfig] || categoryConfig['issue'];
+  const accentColor = config.accent;
+  const bgColor = config.bg;
+  const borderColor = config.border;
+  const ReportIcon = config.icon;
+  const reportTitle = config.title;
 
   // Always use centered positioning for large modal
   const positionConfig = {
@@ -78,7 +109,7 @@ export function ReportModal({ report, isOpen, isClosing = false, onClose, marker
               </div>
               <div>
                 <h2 className={`text-2xl font-bold ${accentColor}`}>
-                  {isCrime ? "Crime Report" : "Construction Report"}
+                  {reportTitle}
                 </h2>
                 <p className="text-sm text-muted-foreground">ID: {report.id}</p>
               </div>

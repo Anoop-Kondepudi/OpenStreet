@@ -3,8 +3,10 @@
 import { useState, useRef, useCallback } from "react";
 import Map, { Marker, NavigationControl, ScaleControl, GeolocateControl, MapRef } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
-import crimeData from "@/docs/crime.json";
-import constructionData from "@/docs/construction.json";
+import issueData from "@/docs/issue.json";
+import ideaData from "@/docs/idea.json";
+import civilianEventData from "@/docs/civilian-event.json";
+import governmentEventData from "@/docs/government-event.json";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
@@ -29,9 +31,10 @@ type Report = {
 interface MapboxMapProps {
   onReportSelect: (report: Report, markerPosition?: { x: number; y: number }) => void;
   showPopup?: boolean;
+  onMapClick?: (location: { lat: number; lng: number; x: number; y: number }) => void;
 }
 
-export function MapboxMap({ onReportSelect, showPopup = false }: MapboxMapProps) {
+export function MapboxMap({ onReportSelect, showPopup = false, onMapClick }: MapboxMapProps) {
   const [viewState, setViewState] = useState({
     longitude: -96.80,
     latitude: 32.78,
@@ -104,13 +107,35 @@ export function MapboxMap({ onReportSelect, showPopup = false }: MapboxMapProps)
         ref={mapRef}
         {...viewState}
         onMove={evt => setViewState(evt.viewState)}
+        onClick={(event) => {
+          console.log("🎯 Map onClick fired!", event);
+          if (onMapClick && mapRef.current) {
+            console.log("✅ onMapClick exists, processing...");
+            const { lng, lat } = event.lngLat;
+            const map = mapRef.current.getMap();
+            const point = map.project([lng, lat]);
+            const mapContainer = mapRef.current.getContainer();
+            const rect = mapContainer.getBoundingClientRect();
+
+            const locationData = {
+              lat,
+              lng,
+              x: rect.left + point.x,
+              y: rect.top + point.y,
+            };
+            console.log("📍 Calling onMapClick with:", locationData);
+            onMapClick(locationData);
+          } else {
+            console.log("❌ onMapClick not available:", { onMapClick, hasMapRef: !!mapRef.current });
+          }
+        }}
         mapStyle="mapbox://styles/mapbox/dark-v11"
         mapboxAccessToken={MAPBOX_TOKEN}
         style={{ width: "100%", height: "100%" }}
       >
-        {/* Crime Markers - Red */}
-        {crimeData.reports.map((report: Report) => {
-          const reportWithType = { ...report, type: "crime" };
+        {/* Issue Markers - Red 🔴 */}
+        {issueData.reports.map((report: Report) => {
+          const reportWithType = { ...report, type: "issue" };
           return (
             <Marker
               key={report.id}
@@ -136,9 +161,9 @@ export function MapboxMap({ onReportSelect, showPopup = false }: MapboxMapProps)
           );
         })}
 
-        {/* Construction Markers - Orange */}
-        {constructionData.reports.map((report: Report) => {
-          const reportWithType = { ...report, type: "construction" };
+        {/* Idea Markers - Blue 💡 */}
+        {ideaData.reports.map((report: Report) => {
+          const reportWithType = { ...report, type: "idea" };
           return (
             <Marker
               key={report.id}
@@ -155,7 +180,63 @@ export function MapboxMap({ onReportSelect, showPopup = false }: MapboxMapProps)
                   width: "20px",
                   height: "20px",
                   borderRadius: "50%",
-                  backgroundColor: "#f97316",
+                  backgroundColor: "#3b82f6",
+                  border: "2px solid #ffffff",
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                }}
+              />
+            </Marker>
+          );
+        })}
+
+        {/* Civilian Event Markers - Green 👥 */}
+        {civilianEventData.reports.map((report: Report) => {
+          const reportWithType = { ...report, type: "civilian-event" };
+          return (
+            <Marker
+              key={report.id}
+              longitude={report.location.lng}
+              latitude={report.location.lat}
+              onClick={(e) => {
+                e.originalEvent.stopPropagation();
+                handleMarkerClick(reportWithType);
+              }}
+            >
+              <div
+                className="cursor-pointer hover:scale-110 transition-transform"
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  borderRadius: "50%",
+                  backgroundColor: "#10b981",
+                  border: "2px solid #ffffff",
+                  boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                }}
+              />
+            </Marker>
+          );
+        })}
+
+        {/* Government Event Markers - Purple 🏛️ */}
+        {governmentEventData.reports.map((report: Report) => {
+          const reportWithType = { ...report, type: "government-event" };
+          return (
+            <Marker
+              key={report.id}
+              longitude={report.location.lng}
+              latitude={report.location.lat}
+              onClick={(e) => {
+                e.originalEvent.stopPropagation();
+                handleMarkerClick(reportWithType);
+              }}
+            >
+              <div
+                className="cursor-pointer hover:scale-110 transition-transform"
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  borderRadius: "50%",
+                  backgroundColor: "#8b5cf6",
                   border: "2px solid #ffffff",
                   boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
                 }}
@@ -251,7 +332,10 @@ export function MapboxMap({ onReportSelect, showPopup = false }: MapboxMapProps)
                 </Button>
                 <div className="pr-6">
                   <p className="text-sm text-muted-foreground mb-3">
-                    {popupInfo.type === "crime" ? "Crime Report" : "Construction Report"}
+                    {popupInfo.type === "issue" ? "Issue Report" :
+                     popupInfo.type === "idea" ? "Idea" :
+                     popupInfo.type === "civilian-event" ? "Civilian Event" :
+                     "Government Event"}
                   </p>
                   <Button
                     onClick={() => {

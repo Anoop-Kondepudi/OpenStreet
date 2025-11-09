@@ -125,7 +125,7 @@ export default function UserPage() {
   };
 
   const handleSubmitReport = async (report: {
-    type: "crime" | "construction";
+    type: "issue" | "idea" | "civilian-event" | "government-event";
     description: string;
     location: {
       address: string;
