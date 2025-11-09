@@ -22,20 +22,24 @@ type Report = {
 export default function UserPage() {
   const [selectedReport, setSelectedReport] = useState<Report | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalClosing, setIsModalClosing] = useState(false);
   const [markerPosition, setMarkerPosition] = useState<{ x: number; y: number } | null>(null);
 
   const handleReportSelect = (report: Report, position?: { x: number; y: number }) => {
     setSelectedReport(report);
     setMarkerPosition(position || null);
     setIsModalOpen(true);
+    setIsModalClosing(false);
   };
 
   const handleCloseModal = () => {
-    setIsModalOpen(false);
+    setIsModalClosing(true);
     // Small delay before clearing to allow exit animation
     setTimeout(() => {
+      setIsModalOpen(false);
       setSelectedReport(null);
       setMarkerPosition(null);
+      setIsModalClosing(false);
     }, 300);
   };
 
@@ -62,6 +66,7 @@ export default function UserPage() {
       <ReportModal
         report={selectedReport}
         isOpen={isModalOpen}
+        isClosing={isModalClosing}
         onClose={handleCloseModal}
         markerPosition={markerPosition}
       />

@@ -21,11 +21,12 @@ type Report = {
 interface ReportModalProps {
   report: Report | null;
   isOpen: boolean;
+  isClosing?: boolean;
   onClose: () => void;
   markerPosition?: { x: number; y: number } | null;
 }
 
-export function ReportModal({ report, isOpen, onClose, markerPosition }: ReportModalProps) {
+export function ReportModal({ report, isOpen, isClosing = false, onClose, markerPosition }: ReportModalProps) {
   if (!isOpen || !report) return null;
 
   const isCrime = report.type === "crime";
@@ -109,7 +110,9 @@ export function ReportModal({ report, isOpen, onClose, markerPosition }: ReportM
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 z-50 animate-in fade-in duration-200"
+        className={`fixed inset-0 bg-black/50 z-50 ${
+          isClosing ? 'animate-fade-scale-out' : 'animate-in fade-in duration-200'
+        }`}
         onClick={onClose}
       />
 
@@ -122,7 +125,9 @@ export function ReportModal({ report, isOpen, onClose, markerPosition }: ReportM
         }`}
       >
         <div
-          className="bg-card border rounded-lg shadow-lg pointer-events-auto animate-fade-scale relative"
+          className={`bg-card border rounded-lg shadow-lg pointer-events-auto relative ${
+            isClosing ? 'animate-fade-scale-out' : 'animate-fade-scale'
+          }`}
           style={positionConfig.position === "absolute" ? positionConfig.style : { maxWidth: "512px", width: "100%" }}
           onClick={(e) => e.stopPropagation()}
         >

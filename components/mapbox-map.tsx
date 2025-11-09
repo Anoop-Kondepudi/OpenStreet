@@ -43,6 +43,15 @@ export function MapboxMap({ onReportSelect, showPopup = false }: MapboxMapProps)
   const [isPopupClosing, setIsPopupClosing] = useState(false);
   const mapRef = useRef<MapRef>(null);
 
+  const closePopup = useCallback(() => {
+    setIsPopupClosing(true);
+    setTimeout(() => {
+      setPopupInfo(null);
+      setPopupPosition(null);
+      setIsPopupClosing(false);
+    }, 200); // Match the animation duration
+  }, []);
+
   const getMarkerScreenPosition = useCallback((lat: number, lng: number): { x: number; y: number } | undefined => {
     if (!mapRef.current) return undefined;
 
@@ -70,11 +79,19 @@ export function MapboxMap({ onReportSelect, showPopup = false }: MapboxMapProps)
     if (showPopup) {
       // Toggle: if clicking same marker, close it; otherwise show new one
       if (popupInfo?.id === report.id) {
-        setPopupInfo(null);
-        setPopupPosition(null);
+        closePopup();
       } else {
-        setPopupInfo(report);
-        setPopupPosition(markerPosition || null);
+        // If another popup is open, close it first
+        if (popupInfo) {
+          closePopup();
+          setTimeout(() => {
+            setPopupInfo(report);
+            setPopupPosition(markerPosition || null);
+          }, 200);
+        } else {
+          setPopupInfo(report);
+          setPopupPosition(markerPosition || null);
+        }
       }
     } else {
       onReportSelect(report, markerPosition);
@@ -195,7 +212,9 @@ export function MapboxMap({ onReportSelect, showPopup = false }: MapboxMapProps)
 
         return (
           <div
-            className="fixed z-10 animate-fade-scale-fast pointer-events-none"
+            className={`fixed z-10 pointer-events-none ${
+              isPopupClosing ? 'animate-fade-scale-out-fast' : 'animate-fade-scale-fast'
+            }`}
             style={{
               left: `${left}px`,
               top: showAbove ? `${top}px` : undefined,
@@ -226,10 +245,7 @@ export function MapboxMap({ onReportSelect, showPopup = false }: MapboxMapProps)
                   variant="ghost"
                   size="icon"
                   className="absolute top-2 right-2 h-6 w-6"
-                  onClick={() => {
-                    setPopupInfo(null);
-                    setPopupPosition(null);
-                  }}
+                  onClick={closePopup}
                 >
                   <X className="h-4 w-4" />
                 </Button>
@@ -241,8 +257,7 @@ export function MapboxMap({ onReportSelect, showPopup = false }: MapboxMapProps)
                     onClick={() => {
                       const markerPosition = getMarkerScreenPosition(popupInfo.location.lat, popupInfo.location.lng);
                       onReportSelect(popupInfo, markerPosition);
-                      setPopupInfo(null);
-                      setPopupPosition(null);
+                      closePopup();
                     }}
                     className="w-full"
                   >
