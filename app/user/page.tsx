@@ -1,8 +1,17 @@
 "use client";
 
 import { MapboxMap } from "@/components/mapbox-map";
+import { auth0 } from "@/lib/auth0";
+import { redirect } from "next/navigation";
 
-export default function UserPage() {
+export default async function UserPage() {
+  const session = await auth0.getSession();
+  const user = session?.user;
+
+  if (!user) {
+    redirect("/auth/login");
+  }
+
   return (
     <div className="flex flex-col h-screen bg-background">
       {/* Header */}
