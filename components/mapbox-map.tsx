@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useRef, useCallback, useEffect, useMemo } from "react";
 import Map, { Marker, NavigationControl, ScaleControl, GeolocateControl, MapRef } from "react-map-gl/mapbox";
 import "mapbox-gl/dist/mapbox-gl.css";
+import Supercluster from "supercluster";
 import issueData from "@/docs/issue.json";
 import ideaData from "@/docs/idea.json";
 import civilianEventData from "@/docs/civilian-event.json";
@@ -10,8 +11,20 @@ import governmentEventData from "@/docs/government-event.json";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { X, ThumbsUp, ThumbsDown } from "lucide-react";
+import { ClusterMarker } from "@/components/cluster-marker";
+import { MapFilterLegend } from "@/components/map-filter-legend";
 import { MarkerHoverCard } from "@/components/marker-hover-card";
 import { Announcement } from "@/components/announcements-dropdown";
+import {
+  reportsToGeoJSON,
+  reduceClusterProperties,
+  CATEGORY_COLORS
+} from "@/lib/cluster-utils";
+import {
+  ReportWithType,
+  CategoryFilterState,
+  ReportType
+} from "@/types/cluster";
 
 const MAPBOX_TOKEN = "pk.eyJ1IjoiemVsZG9tIiwiYSI6ImNtaHF2czcyeDEyaGcya3B6d3ZvY2hleDkifQ.2BQHylALQUj9cNYDuHijOQ";
 
@@ -56,6 +69,14 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const mapRef = useRef<MapRef>(null);
 
+  // Category filter state - all enabled by default
+  const [categoryFilters, setCategoryFilters] = useState<CategoryFilterState>({
+    issue: true,
+    idea: true,
+    "civilian-event": true,
+    "government-event": true,
+  });
+
   // Load votes from localStorage on mount
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -70,13 +91,86 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
     }
   }, []);
 
+  const handleFilterChange = useCallback((category: ReportType, enabled: boolean) => {
+    setCategoryFilters((prev) => ({
+      ...prev,
+      [category]: enabled,
+    }));
+  }, []);
+
+  // Consolidate all reports into a single array with type tags and apply filters
+  const allReports = useMemo<ReportWithType[]>(() => {
+    const reports = [
+      ...issueData.reports.map(r => ({ ...r, type: "issue" as const })),
+      ...ideaData.reports.map(r => ({ ...r, type: "idea" as const })),
+      ...civilianEventData.reports.map(r => ({ ...r, type: "civilian-event" as const })),
+      ...governmentEventData.reports.map(r => ({ ...r, type: "government-event" as const })),
+    ];
+
+    // Filter based on enabled categories
+    return reports.filter(report => categoryFilters[report.type]);
+  }, [categoryFilters]);
+
+  // Calculate category counts for the legend
+  const categoryCounts = useMemo(() => {
+    return {
+      issue: issueData.reports.length,
+      idea: ideaData.reports.length,
+      "civilian-event": civilianEventData.reports.length,
+      "government-event": governmentEventData.reports.length,
+    };
+  }, []);
+
+  // Initialize Supercluster
+  const supercluster = useMemo(() => {
+    const cluster = new Supercluster({
+      radius: 40,
+      maxZoom: 13,
+      minZoom: 0,
+      minPoints: 3,
+      reduce: reduceClusterProperties,
+    });
+
+    // Convert reports to GeoJSON and ensure each has categoryCounts initialized
+    const points = reportsToGeoJSON(allReports).map(point => ({
+      ...point,
+      properties: {
+        ...point.properties,
+        categoryCounts: {
+          issue: point.properties.report.type === "issue" ? 1 : 0,
+          idea: point.properties.report.type === "idea" ? 1 : 0,
+          "civilian-event": point.properties.report.type === "civilian-event" ? 1 : 0,
+          "government-event": point.properties.report.type === "government-event" ? 1 : 0,
+        }
+      }
+    }));
+
+    cluster.load(points);
+    return cluster;
+  }, [allReports]);
+
+  // Get clusters for current viewport
+  const clusters = useMemo(() => {
+    if (!mapRef.current) return [];
+
+    const map = mapRef.current.getMap();
+    const bounds = map.getBounds();
+
+    if (!bounds) return [];
+
+    return supercluster.getClusters(
+      [bounds.getWest(), bounds.getSouth(), bounds.getEast(), bounds.getNorth()],
+      Math.floor(viewState.zoom)
+    );
+  }, [supercluster, viewState.zoom, viewState.latitude, viewState.longitude]);
+
   const closePopup = useCallback(() => {
     setIsPopupClosing(true);
     setTimeout(() => {
       setPopupInfo(null);
       setPopupPosition(null);
       setIsPopupClosing(false);
-    }, 200); // Match the animation duration
+    }, 200);
   }, []);
 
   const getMarkerScreenPosition = useCallback((lat: number, lng: number): { x: number; y: number } | undefined => {
@@ -86,7 +180,6 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
       const map = mapRef.current.getMap();
       const point = map.project([lng, lat]);
 
-      // Get the map container's position on the page
       const mapContainer = mapRef.current.getContainer();
       const rect = mapContainer.getBoundingClientRect();
 
@@ -104,11 +197,9 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
     const markerPosition = getMarkerScreenPosition(report.location.lat, report.location.lng);
 
     if (showPopup) {
-      // Toggle: if clicking same marker, close it; otherwise show new one
       if (popupInfo?.id === report.id) {
         closePopup();
       } else {
-        // If another popup is open, close it first
         if (popupInfo) {
           closePopup();
           setTimeout(() => {
@@ -125,8 +216,23 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
     }
   };
 
+  const handleClusterClick = useCallback((clusterId: number, longitude: number, latitude: number) => {
+    if (!mapRef.current) return;
+
+    const map = mapRef.current.getMap();
+    const expansionZoom = Math.min(
+      supercluster.getClusterExpansionZoom(clusterId),
+      20
+    );
+
+    map.flyTo({
+      center: [longitude, latitude],
+      zoom: expansionZoom,
+      duration: 500,
+    });
+  }, [supercluster]);
+
   const handleMarkerHover = (report: Report, reportType: string) => {
-    // Clear any pending timeout
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
@@ -140,7 +246,6 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
   };
 
   const handleMarkerLeave = () => {
-    // Delay closing to allow mouse to move to the hover card
     hoverTimeoutRef.current = setTimeout(() => {
       setHoveredMarker(null);
       setHoverPosition(null);
@@ -148,7 +253,6 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
   };
 
   const cancelHoverClose = () => {
-    // Cancel the close timeout when mouse enters the hover card
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
@@ -156,7 +260,6 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
   };
 
   const handleHoverCardClose = () => {
-    // Immediately close without timeout
     if (hoverTimeoutRef.current) {
       clearTimeout(hoverTimeoutRef.current);
       hoverTimeoutRef.current = null;
@@ -171,20 +274,17 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
     const reportId = hoveredMarker.report.id;
     const currentVote = userVotes[reportId];
 
-    // If already liked, don't do anything
     if (currentVote === 'like') {
       handleHoverCardClose();
       return;
     }
 
-    // Update UI immediately (optimistic update)
     const newVotes = { ...userVotes, [reportId]: 'like' as const };
     setUserVotes(newVotes);
     localStorage.setItem('civic-link-votes', JSON.stringify(newVotes));
 
     handleHoverCardClose();
 
-    // Send API request in background
     try {
       const response = await fetch(`/api/reports/${reportId}/vote`, {
         method: 'POST'
@@ -194,7 +294,6 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
         const data = await response.json();
         console.log("Vote successful! New vote count:", data.votes);
       } else {
-        // Revert on failure
         console.error("Vote failed, reverting...");
         const revertedVotes = { ...userVotes };
         delete revertedVotes[reportId];
@@ -203,7 +302,6 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
       }
     } catch (error) {
       console.error("Error voting:", error);
-      // Revert on error
       const revertedVotes = { ...userVotes };
       delete revertedVotes[reportId];
       setUserVotes(revertedVotes);
@@ -217,20 +315,17 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
     const reportId = hoveredMarker.report.id;
     const currentVote = userVotes[reportId];
 
-    // If already disliked, don't do anything
     if (currentVote === 'dislike') {
       handleHoverCardClose();
       return;
     }
 
-    // Update UI immediately (optimistic update)
     const newVotes = { ...userVotes, [reportId]: 'dislike' as const };
     setUserVotes(newVotes);
     localStorage.setItem('civic-link-votes', JSON.stringify(newVotes));
 
     handleHoverCardClose();
 
-    // Send API request in background
     try {
       const response = await fetch(`/api/reports/${reportId}/downvote`, {
         method: 'POST'
@@ -240,7 +335,6 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
         const data = await response.json();
         console.log("Downvote successful! New downvote count:", data.downvotes);
       } else {
-        // Revert on failure
         console.error("Downvote failed, reverting...");
         const revertedVotes = { ...userVotes };
         delete revertedVotes[reportId];
@@ -249,7 +343,6 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
       }
     } catch (error) {
       console.error("Error downvoting:", error);
-      // Revert on error
       const revertedVotes = { ...userVotes };
       delete revertedVotes[reportId];
       setUserVotes(revertedVotes);
@@ -257,7 +350,6 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
     }
   };
 
-  // Generate title from description (first 50 chars or until first period)
   const generateTitle = (description: string): string => {
     const firstSentence = description.split('.')[0];
     return firstSentence.length > 50 ? firstSentence.substring(0, 50) + '...' : firstSentence;
@@ -265,6 +357,15 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
 
   return (
     <div className="w-full h-full rounded-lg overflow-hidden border border-border shadow-lg relative">
+      {/* Category Filter Legend */}
+      <div className="absolute top-4 left-4 z-10">
+        <MapFilterLegend
+          filters={categoryFilters}
+          onFilterChange={handleFilterChange}
+          categoryCounts={categoryCounts}
+        />
+      </div>
+
       <Map
         ref={mapRef}
         {...viewState}
@@ -295,208 +396,76 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
         mapboxAccessToken={MAPBOX_TOKEN}
         style={{ width: "100%", height: "100%" }}
       >
-        {/* Issue Markers - Red 🔴 */}
-        {issueData.reports.map((report: Report) => {
-          const reportWithType = { ...report, type: "issue" };
-          const userVote = userVotes[report.id];
-          return (
-            <Marker
-              key={report.id}
-              longitude={report.location.lng}
-              latitude={report.location.lat}
-              onClick={(e) => {
-                e.originalEvent.stopPropagation();
-                handleMarkerClick(reportWithType);
-              }}
-            >
-              <div className="relative">
-                <div
-                  className="cursor-pointer hover:scale-110 transition-transform"
-                  style={{
-                    width: "20px",
-                    height: "20px",
-                    borderRadius: "50%",
-                    backgroundColor: "#ef4444",
-                    border: "2px solid #ffffff",
-                    boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                  }}
-                  onMouseEnter={() => handleMarkerHover(reportWithType, "issue")}
-                  onMouseLeave={handleMarkerLeave}
-                />
-                {userVote && (
-                  <div
-                    className="absolute -top-3 -right-3 rounded-full flex items-center justify-center animate-in zoom-in duration-200"
-                    style={{
-                      width: "24px",
-                      height: "24px",
-                      backgroundColor: userVote === 'like' ? '#22c55e' : '#ef4444',
-                      border: "2px solid #ffffff",
-                      boxShadow: "0 2px 6px rgba(0,0,0,0.4)",
-                    }}
-                  >
-                    {userVote === 'like' ? (
-                      <ThumbsUp className="h-3.5 w-3.5 text-white fill-white" />
-                    ) : (
-                      <ThumbsDown className="h-3.5 w-3.5 text-white fill-white" />
-                    )}
-                  </div>
-                )}
-              </div>
-            </Marker>
-          );
-        })}
+        {/* Render clusters and individual markers */}
+        {clusters.map((cluster) => {
+          const [longitude, latitude] = cluster.geometry.coordinates;
+          const properties = cluster.properties;
 
-        {/* Idea Markers - Blue 💡 */}
-        {ideaData.reports.map((report: Report) => {
-          const reportWithType = { ...report, type: "idea" };
-          const userVote = userVotes[report.id];
-          return (
-            <Marker
-              key={report.id}
-              longitude={report.location.lng}
-              latitude={report.location.lat}
-              onClick={(e) => {
-                e.originalEvent.stopPropagation();
-                handleMarkerClick(reportWithType);
-              }}
-            >
-              <div className="relative">
-                <div
-                  className="cursor-pointer hover:scale-110 transition-transform"
-                  style={{
-                    width: "20px",
-                    height: "20px",
-                    borderRadius: "50%",
-                    backgroundColor: "#3b82f6",
-                    border: "2px solid #ffffff",
-                    boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                  }}
-                  onMouseEnter={() => handleMarkerHover(reportWithType, "idea")}
-                  onMouseLeave={handleMarkerLeave}
-                />
-                {userVote && (
-                  <div
-                    className="absolute -top-3 -right-3 rounded-full flex items-center justify-center animate-in zoom-in duration-200"
-                    style={{
-                      width: "24px",
-                      height: "24px",
-                      backgroundColor: userVote === 'like' ? '#22c55e' : '#ef4444',
-                      border: "2px solid #ffffff",
-                      boxShadow: "0 2px 6px rgba(0,0,0,0.4)",
-                    }}
-                  >
-                    {userVote === 'like' ? (
-                      <ThumbsUp className="h-3.5 w-3.5 text-white fill-white" />
-                    ) : (
-                      <ThumbsDown className="h-3.5 w-3.5 text-white fill-white" />
-                    )}
-                  </div>
-                )}
-              </div>
-            </Marker>
-          );
-        })}
+          const isActualCluster = properties.cluster && properties.point_count && properties.point_count > 1;
 
-        {/* Civilian Event Markers - Green 👥 */}
-        {civilianEventData.reports.map((report: Report) => {
-          const reportWithType = { ...report, type: "civilian-event" };
-          const userVote = userVotes[report.id];
-          return (
-            <Marker
-              key={report.id}
-              longitude={report.location.lng}
-              latitude={report.location.lat}
-              onClick={(e) => {
-                e.originalEvent.stopPropagation();
-                handleMarkerClick(reportWithType);
-              }}
-            >
-              <div className="relative">
-                <div
-                  className="cursor-pointer hover:scale-110 transition-transform"
-                  style={{
-                    width: "20px",
-                    height: "20px",
-                    borderRadius: "50%",
-                    backgroundColor: "#10b981",
-                    border: "2px solid #ffffff",
-                    boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                  }}
-                  onMouseEnter={() => handleMarkerHover(reportWithType, "civilian-event")}
-                  onMouseLeave={handleMarkerLeave}
+          if (isActualCluster) {
+            return (
+              <Marker
+                key={`cluster-${cluster.id}`}
+                longitude={longitude}
+                latitude={latitude}
+              >
+                <ClusterMarker
+                  pointCount={properties.point_count!}
+                  categoryCounts={properties.categoryCounts}
+                  onClick={() => handleClusterClick(cluster.id as number, longitude, latitude)}
                 />
-                {userVote && (
+              </Marker>
+            );
+          } else {
+            const report = (properties as any).report as ReportWithType;
+            const userVote = userVotes[report.id];
+            return (
+              <Marker
+                key={report.id}
+                longitude={longitude}
+                latitude={latitude}
+                onClick={(e) => {
+                  e.originalEvent.stopPropagation();
+                  handleMarkerClick(report);
+                }}
+              >
+                <div className="relative">
                   <div
-                    className="absolute -top-3 -right-3 rounded-full flex items-center justify-center animate-in zoom-in duration-200"
+                    className="cursor-pointer hover:scale-110 transition-transform"
                     style={{
-                      width: "24px",
-                      height: "24px",
-                      backgroundColor: userVote === 'like' ? '#22c55e' : '#ef4444',
+                      width: "20px",
+                      height: "20px",
+                      borderRadius: "50%",
+                      backgroundColor: CATEGORY_COLORS[report.type],
                       border: "2px solid #ffffff",
-                      boxShadow: "0 2px 6px rgba(0,0,0,0.4)",
+                      boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
                     }}
-                  >
-                    {userVote === 'like' ? (
-                      <ThumbsUp className="h-3.5 w-3.5 text-white fill-white" />
-                    ) : (
-                      <ThumbsDown className="h-3.5 w-3.5 text-white fill-white" />
-                    )}
-                  </div>
-                )}
-              </div>
-            </Marker>
-          );
-        })}
-
-        {/* Government Event Markers - Purple 🏛️ */}
-        {governmentEventData.reports.map((report: Report) => {
-          const reportWithType = { ...report, type: "government-event" };
-          const userVote = userVotes[report.id];
-          return (
-            <Marker
-              key={report.id}
-              longitude={report.location.lng}
-              latitude={report.location.lat}
-              onClick={(e) => {
-                e.originalEvent.stopPropagation();
-                handleMarkerClick(reportWithType);
-              }}
-            >
-              <div className="relative">
-                <div
-                  className="cursor-pointer hover:scale-110 transition-transform"
-                  style={{
-                    width: "20px",
-                    height: "20px",
-                    borderRadius: "50%",
-                    backgroundColor: "#8b5cf6",
-                    border: "2px solid #ffffff",
-                    boxShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                  }}
-                  onMouseEnter={() => handleMarkerHover(reportWithType, "government-event")}
-                  onMouseLeave={handleMarkerLeave}
-                />
-                {userVote && (
-                  <div
-                    className="absolute -top-3 -right-3 rounded-full flex items-center justify-center animate-in zoom-in duration-200"
-                    style={{
-                      width: "24px",
-                      height: "24px",
-                      backgroundColor: userVote === 'like' ? '#22c55e' : '#ef4444',
-                      border: "2px solid #ffffff",
-                      boxShadow: "0 2px 6px rgba(0,0,0,0.4)",
-                    }}
-                  >
-                    {userVote === 'like' ? (
-                      <ThumbsUp className="h-3.5 w-3.5 text-white fill-white" />
-                    ) : (
-                      <ThumbsDown className="h-3.5 w-3.5 text-white fill-white" />
-                    )}
-                  </div>
-                )}
-              </div>
-            </Marker>
-          );
+                    onMouseEnter={() => handleMarkerHover(report, report.type)}
+                    onMouseLeave={handleMarkerLeave}
+                  />
+                  {userVote && (
+                    <div
+                      className="absolute -top-3 -right-3 rounded-full flex items-center justify-center animate-in zoom-in duration-200"
+                      style={{
+                        width: "24px",
+                        height: "24px",
+                        backgroundColor: userVote === 'like' ? '#22c55e' : '#ef4444',
+                        border: "2px solid #ffffff",
+                        boxShadow: "0 2px 6px rgba(0,0,0,0.4)",
+                      }}
+                    >
+                      {userVote === 'like' ? (
+                        <ThumbsUp className="h-3.5 w-3.5 text-white fill-white" />
+                      ) : (
+                        <ThumbsDown className="h-3.5 w-3.5 text-white fill-white" />
+                      )}
+                    </div>
+                  )}
+                </div>
+              </Marker>
+            );
+          }
         })}
 
         {/* Render announcement markers */}
@@ -512,7 +481,7 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
                 width: "24px",
                 height: "24px",
                 borderRadius: "50%",
-                backgroundColor: "#f59e0b", // amber for announcements
+                backgroundColor: "#f59e0b",
                 border: "3px solid #ffffff",
                 boxShadow: "0 2px 6px rgba(0,0,0,0.4)",
               }}
@@ -527,16 +496,14 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
 
       {/* Custom Styled Popup with Animation */}
       {showPopup && popupInfo && popupPosition && (() => {
-        // Calculate smart positioning for popup preview
-        const popupWidth = 240; // min-w-[200px] + padding
-        const popupHeight = 120; // approximate height
+        const popupWidth = 240;
+        const popupHeight = 120;
         const spacing = 15;
         const markerSize = 20;
 
         const viewportWidth = typeof window !== 'undefined' ? window.innerWidth : 1000;
         const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 1000;
 
-        // Determine vertical position (prefer above)
         const spaceAbove = popupPosition.y - spacing - markerSize / 2;
         const spaceBelow = viewportHeight - popupPosition.y - spacing - markerSize / 2;
         const showAbove = spaceAbove >= popupHeight || spaceAbove > spaceBelow;
@@ -552,7 +519,6 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
           tailPosition = 'top';
         }
 
-        // Calculate horizontal position
         let left = popupPosition.x;
         const halfWidth = popupWidth / 2;
         const padding = 16;
@@ -579,7 +545,6 @@ export function MapboxMap({ onReportSelect, showPopup = false, onMapClick, annou
             }}
           >
             <Card className="shadow-lg border-border min-w-[200px] pointer-events-auto relative">
-              {/* Rounded Tail for popup */}
               <div
                 className={`absolute ${
                   tailPosition === 'bottom'

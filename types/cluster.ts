@@ -7,14 +7,18 @@ export type Report = {
   id: string;
   description: string;
   location: {
-    city: string;
-    state: string;
-    address: string;
+    city?: string;
+    state?: string;
+    address?: string;
     lat: number;
     lng: number;
   };
   timestamp: string;
   status: string;
+  votes?: number;
+  downvotes?: number;
+  title?: string;
+  images?: { mimeType: string; base64: string; }[];
 };
 
 export type ReportWithType = Report & {
