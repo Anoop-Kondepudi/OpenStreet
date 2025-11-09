@@ -119,9 +119,6 @@ export function AnalyticsOverview({ selectedReport }: AnalyticsOverviewProps) {
               <div className="text-sm text-foreground bg-muted/50 p-4 rounded-lg border border-border">
                 <p className="font-medium">{selectedReport.location.address}</p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  {selectedReport.location.city}, {selectedReport.location.state}
-                </p>
-                <p className="text-xs text-muted-foreground mt-1">
                   {selectedReport.location.lat.toFixed(4)}, {selectedReport.location.lng.toFixed(4)}
                 </p>
               </div>
