@@ -57,3 +57,43 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      scale: 0.95;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  @keyframes fadeOutScale {
+    from {
+      opacity: 1;
+      scale: 1;
+    }
+    to {
+      opacity: 0;
+      scale: 0.95;
+    }
+  }
+
+  .animate-fade-scale {
+    animation: fadeInScale 300ms ease-out;
+  }
+
+  .animate-fade-scale-fast {
+    animation: fadeInScale 200ms ease-out;
+  }
+
+  .animate-fade-scale-out {
+    animation: fadeOutScale 300ms ease-in forwards;
+  }
+
+  .animate-fade-scale-out-fast {
+    animation: fadeOutScale 200ms ease-in forwards;
+  }
+}
