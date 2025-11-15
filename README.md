@@ -1,16 +1,10 @@
-# Mapbox Dashboard MVP
+# Open Street
 
-A modern, interactive dashboard built with Next.js 15, TypeScript, Tailwind CSS, and Mapbox GL. This MVP features a clean, cohesive design system with placeholder components ready for data integration.
+A community-first civic platform where city governments and residents engage in one transparent space.
+
 
 ## Features
 
-- **Interactive Mapbox Map**: Central map component with navigation controls, geolocation, and scale
-- **Modern Dashboard Layout**: Sidebar navigation with a responsive grid layout
-- **Unified Design System**: Consistent theming using CSS variables across all components
-- **ShadCN UI Components**: Pre-built, accessible UI components (Cards, Tables, Buttons, Badges)
-- **Placeholder Components**: Ready-to-populate stat cards, data tables, and chart areas
-- **TypeScript**: Full type safety throughout the application
-- **Tailwind CSS**: Utility-first styling with custom theme configuration
 
 ## Tech Stack
 
@@ -134,8 +128,6 @@ mapStyle="mapbox://styles/mapbox/dark-v11"
 Available styles: `streets-v12`, `light-v11`, `dark-v11`, `satellite-v9`, `satellite-streets-v12`
 
 ## Next Steps
-
-This MVP is ready for data integration. Consider adding:
 
 1. **Real Data Integration**: Connect APIs to populate stat cards, tables, and charts
 2. **Map Markers**: Add location markers and popups to the Mapbox component
